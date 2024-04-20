@@ -3,8 +3,8 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\AffiliateCampaign;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Lead;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\AffiliateCampaign;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Lead;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyLeadRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreLeadRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateLeadRequest;

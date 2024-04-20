@@ -4,10 +4,9 @@ namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Transaction;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Store;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Transaction;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
 class AdvertiserReportController extends Controller
 {

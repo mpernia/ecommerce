@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Currency;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Currency;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyCurrencyRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreCurrencyRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateCurrencyRequest;

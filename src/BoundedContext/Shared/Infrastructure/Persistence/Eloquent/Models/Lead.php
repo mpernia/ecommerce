@@ -1,17 +1,18 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp;
+namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FaqQuestion extends Model
+class Lead extends Model
 {
     use SoftDeletes, HasFactory;
 
-    public $table = 'faq_questions';
+    public $table = 'leads';
 
     protected $dates = [
         'created_at',
@@ -20,22 +21,21 @@ class FaqQuestion extends Model
     ];
 
     protected $fillable = [
-        'category_id',
-        'question',
-        'answer',
-        'order',
+        'affiliate_campaign_id',
+        'tracking',
+        'mobile',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function category()
+    public function affiliate_campaign(): BelongsTo
     {
-        return $this->belongsTo(FaqCategory::class, 'category_id');
+        return $this->belongsTo(AffiliateCampaign::class, 'affiliate_campaign_id');
     }
 }

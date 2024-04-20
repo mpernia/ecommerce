@@ -3,9 +3,9 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Product;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ProductCategory;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ProductTag;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Product;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\ProductCategory;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\ProductTag;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyProductRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreProductRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateProductRequest;

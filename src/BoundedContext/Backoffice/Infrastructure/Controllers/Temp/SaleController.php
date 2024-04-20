@@ -3,10 +3,10 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Advertiser;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Lead;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Product;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Sale;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Advertiser;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Lead;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Product;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Sale;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroySaleRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreSaleRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateSaleRequest;

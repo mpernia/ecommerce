@@ -3,8 +3,8 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\FavoriteProduct;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Product;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\FavoriteProduct;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Product;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyFavoriteProductRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreFavoriteProductRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateFavoriteProductRequest;

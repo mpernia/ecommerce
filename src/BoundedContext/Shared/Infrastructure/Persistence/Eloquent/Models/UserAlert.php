@@ -5,6 +5,7 @@ namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Mo
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class UserAlert extends Model
 {
@@ -24,12 +25,12 @@ class UserAlert extends Model
         'updated_at',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function users()
+    public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }

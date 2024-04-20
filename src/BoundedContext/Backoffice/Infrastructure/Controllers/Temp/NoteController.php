@@ -3,8 +3,8 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Note;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Note;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Store;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyNoteRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreNoteRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateNoteRequest;

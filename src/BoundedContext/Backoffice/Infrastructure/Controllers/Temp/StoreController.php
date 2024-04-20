@@ -3,9 +3,9 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Advertiser;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\StoreStatus;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Advertiser;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Store;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\StoreStatus;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyStoreRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreStoreRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateStoreRequest;
@@ -21,7 +21,7 @@ class StoreController extends Controller
         abort_if(Gate::denies('store_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Store::with(['client', 'status', 'created_by'])->select(sprintf('%s.*', (new Store)->table));
+            $query = Store::with(['advertiser', 'status', 'created_by'])->select(sprintf('%s.*', (new Store)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');

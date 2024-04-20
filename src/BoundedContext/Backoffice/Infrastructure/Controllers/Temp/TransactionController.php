@@ -3,11 +3,11 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Currency;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\IncomeSource;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Transaction;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\TransactionType;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Currency;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\IncomeSource;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Store;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Transaction;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\TransactionType;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyTransactionRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreTransactionRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateTransactionRequest;

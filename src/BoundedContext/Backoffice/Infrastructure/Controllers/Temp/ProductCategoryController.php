@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ProductCategory;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\ProductCategory;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyProductCategoryRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreProductCategoryRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateProductCategoryRequest;

@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\StoreStatus;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\StoreStatus;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyStoreStatusRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreStoreStatusRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateStoreStatusRequest;

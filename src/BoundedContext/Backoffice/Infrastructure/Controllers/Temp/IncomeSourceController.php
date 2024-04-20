@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\IncomeSource;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\IncomeSource;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyIncomeSourceRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreIncomeSourceRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateIncomeSourceRequest;

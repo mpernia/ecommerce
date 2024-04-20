@@ -7,6 +7,7 @@ use DateTimeInterface;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Notifications\VerifyUserNotification;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -51,12 +52,12 @@ class User extends Authenticatable
         'two_factor_expires_at',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function generateTwoFactorCode()
+    public function generateTwoFactorCode(): void
     {
         $this->timestamps            = false;
         $this->two_factor_code       = rand(100000, 999999);
@@ -64,7 +65,7 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function resetTwoFactorCode()
+    public function resetTwoFactorCode(): void
     {
         $this->timestamps            = false;
         $this->two_factor_code       = null;
@@ -107,54 +108,54 @@ class User extends Authenticatable
         });
     }
 
-    public function userUserAlerts()
+    public function userUserAlerts(): BelongsToMany
     {
         return $this->belongsToMany(UserAlert::class);
     }
 
-    public function getEmailVerifiedAtAttribute($value)
+    public function getEmailVerifiedAtAttribute($value): ?string
     {
         return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('setting.date_format') . ' ' . config('setting.time_format')) : null;
     }
 
-    public function setEmailVerifiedAtAttribute($value)
+    public function setEmailVerifiedAtAttribute($value): void
     {
         $this->attributes['email_verified_at'] = $value ? Carbon::createFromFormat(config('setting.date_format') . ' ' . config('setting.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 
-    public function setPasswordAttribute($input)
+    public function setPasswordAttribute($input): void
     {
         if ($input) {
             $this->attributes['password'] = app('hash')->needsRehash($input) ? Hash::make($input) : $input;
         }
     }
 
-    public function sendPasswordResetNotification($token)
+    public function sendPasswordResetNotification($token): void
     {
         $this->notify(new ResetPassword($token));
     }
 
-    public function getVerifiedAtAttribute($value)
+    public function getVerifiedAtAttribute($value): ?string
     {
         return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('setting.date_format') . ' ' . config('setting.time_format')) : null;
     }
 
-    public function setVerifiedAtAttribute($value)
+    public function setVerifiedAtAttribute($value): void
     {
         $this->attributes['verified_at'] = $value ? Carbon::createFromFormat(config('setting.date_format') . ' ' . config('setting.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 
-    public function roles()
+    public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);
     }
 
-    public function getTwoFactorExpiresAtAttribute($value)
+    public function getTwoFactorExpiresAtAttribute($value): ?string
     {
         return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('setting.date_format') . ' ' . config('setting.time_format')) : null;
     }
 
-    public function setTwoFactorExpiresAtAttribute($value)
+    public function setTwoFactorExpiresAtAttribute($value): void
     {
         $this->attributes['two_factor_expires_at'] = $value ? Carbon::createFromFormat(config('setting.date_format') . ' ' . config('setting.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }

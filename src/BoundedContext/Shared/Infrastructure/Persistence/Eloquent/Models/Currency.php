@@ -1,17 +1,17 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp;
+namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Lead extends Model
+class Currency extends Model
 {
     use SoftDeletes, HasFactory;
 
-    public $table = 'leads';
+    public $table = 'currencies';
 
     protected $dates = [
         'created_at',
@@ -20,21 +20,16 @@ class Lead extends Model
     ];
 
     protected $fillable = [
-        'affiliate_campaign_id',
-        'tracking',
-        'mobile',
+        'name',
+        'code',
+        'main_currency',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
-    }
-
-    public function affiliate_campaign()
-    {
-        return $this->belongsTo(AffiliateCampaign::class, 'affiliate_campaign_id');
     }
 }

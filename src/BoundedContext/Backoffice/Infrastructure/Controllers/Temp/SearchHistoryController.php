@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\SearchHistory;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\SearchHistory;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroySearchHistoryRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreSearchHistoryRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateSearchHistoryRequest;

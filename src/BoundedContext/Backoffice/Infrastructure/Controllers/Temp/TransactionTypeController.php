@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\TransactionType;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\TransactionType;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyTransactionTypeRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreTransactionTypeRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateTransactionTypeRequest;

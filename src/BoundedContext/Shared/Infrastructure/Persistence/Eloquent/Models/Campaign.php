@@ -1,11 +1,13 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp;
+namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models;
 
 use DateTimeInterface;
 use Ecommerce\Shared\Infrastructure\Persistence\Traits\MultiTenantEloquentModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Campaign extends Model
@@ -47,17 +49,17 @@ class Campaign extends Model
         'created_by_id',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function products()
+    public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
     }
 
-    public function created_by()
+    public function created_by(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by_id');
     }

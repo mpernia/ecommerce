@@ -2,7 +2,7 @@
 
 namespace Ecommerce\Shared\Infrastructure\Database\seeders;
 
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Currency;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Currency;
 use Illuminate\Database\Seeder;
 
 class CurrencyTableSeeder extends Seeder

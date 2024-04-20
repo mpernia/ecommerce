@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ProductTag;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\ProductTag;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyProductTagRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreProductTagRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateProductTagRequest;

@@ -3,8 +3,8 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\FaqCategory;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\FaqQuestion;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\FaqCategory;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\FaqQuestion;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyFaqQuestionRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreFaqQuestionRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateFaqQuestionRequest;

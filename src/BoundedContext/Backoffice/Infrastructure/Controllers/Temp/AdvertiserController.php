@@ -3,8 +3,8 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Advertiser;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\AdvertiserStatus;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Advertiser;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\AdvertiserStatus;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyAdvertiserRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreAdvertiserRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateAdvertiserRequest;

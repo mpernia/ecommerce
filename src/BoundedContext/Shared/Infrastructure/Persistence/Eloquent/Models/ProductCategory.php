@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp;
+namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,11 +10,15 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class ContentCategory extends Model implements HasMedia
+class ProductCategory extends Model implements HasMedia
 {
     use SoftDeletes, InteractsWithMedia, HasFactory;
 
-    public $table = 'content_categories';
+    protected $appends = [
+        'photo',
+    ];
+
+    public $table = 'product_categories';
 
     protected $dates = [
         'created_at',
@@ -25,15 +29,12 @@ class ContentCategory extends Model implements HasMedia
     protected $fillable = [
         'name',
         'description',
-        'slug',
-        'icon',
-        'parent_id',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
@@ -44,8 +45,15 @@ class ContentCategory extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
-    public function parent()
+    public function getPhotoAttribute()
     {
-        return $this->belongsTo(self::class, 'parent_id');
+        $file = $this->getMedia('photo')->last();
+        if ($file) {
+            $file->url       = $file->getUrl();
+            $file->thumbnail = $file->getUrl('thumb');
+            $file->preview   = $file->getUrl('preview');
+        }
+
+        return $file;
     }
 }

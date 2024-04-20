@@ -3,8 +3,8 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Document;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Document;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Store;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyDocumentRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreDocumentRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateDocumentRequest;

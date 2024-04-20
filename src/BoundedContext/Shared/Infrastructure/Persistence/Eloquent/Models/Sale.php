@@ -1,10 +1,11 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp;
+namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models;
 
 use DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Sale extends Model
@@ -28,22 +29,22 @@ class Sale extends Model
         'deleted_at',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function product()
+    public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-    public function client()
+    public function advertiser(): BelongsTo
     {
         return $this->belongsTo(Advertiser::class, 'advertiser_id');
     }
 
-    public function tracking()
+    public function tracking(): BelongsTo
     {
         return $this->belongsTo(Lead::class, 'tracking_id');
     }

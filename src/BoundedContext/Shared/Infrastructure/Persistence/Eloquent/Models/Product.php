@@ -1,14 +1,17 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp;
+namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models;
 
 use DateTimeInterface;
 use Ecommerce\Shared\Infrastructure\Persistence\Traits\MultiTenantEloquentModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Product extends Model implements HasMedia
@@ -48,7 +51,7 @@ class Product extends Model implements HasMedia
         'created_by_id',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
@@ -59,12 +62,12 @@ class Product extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
-    public function categories()
+    public function categories(): BelongsToMany
     {
         return $this->belongsToMany(ProductCategory::class);
     }
 
-    public function tags()
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(ProductTag::class);
     }
@@ -81,7 +84,7 @@ class Product extends Model implements HasMedia
         return $file;
     }
 
-    public function getCarouselAttribute()
+    public function getCarouselAttribute(): MediaCollection
     {
         $files = $this->getMedia('carousel');
         $files->each(function ($item) {
@@ -93,7 +96,7 @@ class Product extends Model implements HasMedia
         return $files;
     }
 
-    public function created_by()
+    public function created_by(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by_id');
     }

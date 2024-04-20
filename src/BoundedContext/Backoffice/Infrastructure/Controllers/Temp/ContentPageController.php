@@ -3,9 +3,9 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ContentCategory;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ContentPage;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ContentTag;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\ContentCategory;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\ContentPage;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\ContentTag;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyContentPageRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreContentPageRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateContentPageRequest;

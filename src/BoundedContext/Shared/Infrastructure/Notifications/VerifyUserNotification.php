@@ -2,6 +2,7 @@
 
 namespace Ecommerce\BoundedContext\Shared\Infrastructure\Notifications;
 
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;

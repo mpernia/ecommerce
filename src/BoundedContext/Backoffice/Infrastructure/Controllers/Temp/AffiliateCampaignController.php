@@ -3,9 +3,9 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Affiliate;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\AffiliateCampaign;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Campaign;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Affiliate;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\AffiliateCampaign;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Campaign;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyAffiliateCampaignRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreAffiliateCampaignRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateAffiliateCampaignRequest;

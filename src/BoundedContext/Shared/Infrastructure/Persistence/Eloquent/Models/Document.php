@@ -1,24 +1,26 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp;
+namespace Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models;
 
 use DateTimeInterface;
+use Ecommerce\Shared\Infrastructure\Persistence\Traits\MultiTenantEloquentModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class ProductCategory extends Model implements HasMedia
+class Document extends Model implements HasMedia
 {
-    use SoftDeletes, InteractsWithMedia, HasFactory;
+    use SoftDeletes, MultiTenantEloquentModelTrait, InteractsWithMedia, HasFactory;
+
+    public $table = 'documents';
 
     protected $appends = [
-        'photo',
+        'document_file',
     ];
-
-    public $table = 'product_categories';
 
     protected $dates = [
         'created_at',
@@ -27,14 +29,16 @@ class ProductCategory extends Model implements HasMedia
     ];
 
     protected $fillable = [
+        'store_id',
         'name',
         'description',
         'created_at',
         'updated_at',
         'deleted_at',
+        'created_by_id',
     ];
 
-    protected function serializeDate(DateTimeInterface $date)
+    protected function serializeDate(DateTimeInterface $date): string
     {
         return $date->format('Y-m-d H:i:s');
     }
@@ -45,15 +49,18 @@ class ProductCategory extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
-    public function getPhotoAttribute()
+    public function store(): BelongsTo
     {
-        $file = $this->getMedia('photo')->last();
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-            $file->preview   = $file->getUrl('preview');
-        }
+        return $this->belongsTo(Store::class, 'store_id');
+    }
 
-        return $file;
+    public function getDocumentFileAttribute()
+    {
+        return $this->getMedia('document_file')->last();
+    }
+
+    public function created_by(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by_id');
     }
 }

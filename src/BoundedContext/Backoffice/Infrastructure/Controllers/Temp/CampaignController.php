@@ -3,8 +3,8 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Campaign;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Product;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Campaign;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Product;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyCampaignRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreCampaignRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateCampaignRequest;
