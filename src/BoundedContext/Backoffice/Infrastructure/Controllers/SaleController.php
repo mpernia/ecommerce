@@ -63,7 +63,7 @@ class SaleController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.sales.index');
+        return view('backoffice.advertiserManagement.sales.index');
     }
 
     public function create()
@@ -76,7 +76,7 @@ class SaleController extends Controller
 
         $trackings = Lead::pluck('tracking', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.sales.create', compact('advertisers', 'products', 'trackings'));
+        return view('backoffice.advertiserManagement.sales.create', compact('advertisers', 'products', 'trackings'));
     }
 
     public function store(StoreSaleRequest $request)
@@ -98,7 +98,7 @@ class SaleController extends Controller
 
         $sale->load('product', 'advertiser', 'tracking');
 
-        return view('backoffice.sales.edit', compact('advertisers', 'products', 'sale', 'trackings'));
+        return view('backoffice.advertiserManagement.sales.edit', compact('advertisers', 'products', 'sale', 'trackings'));
     }
 
     public function update(UpdateSaleRequest $request, Sale $sale)
@@ -114,7 +114,7 @@ class SaleController extends Controller
 
         $sale->load('product', 'advertiser', 'tracking');
 
-        return view('backoffice.sales.show', compact('sale'));
+        return view('backoffice.advertiserManagement.sales.show', compact('sale'));
     }
 
     public function destroy(Sale $sale)

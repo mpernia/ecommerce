@@ -55,14 +55,14 @@ class ContentTagController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.contentTags.index');
+        return view('backoffice.contentManagement.tags.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('content_tag_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.contentTags.create');
+        return view('backoffice.contentManagement.tags.create');
     }
 
     public function store(StoreContentTagRequest $request)
@@ -76,7 +76,7 @@ class ContentTagController extends Controller
     {
         abort_if(Gate::denies('content_tag_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.contentTags.edit', compact('contentTag'));
+        return view('backoffice.contentManagement.tags.edit', compact('contentTag'));
     }
 
     public function update(UpdateContentTagRequest $request, ContentTag $contentTag)
@@ -90,7 +90,7 @@ class ContentTagController extends Controller
     {
         abort_if(Gate::denies('content_tag_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.contentTags.show', compact('contentTag'));
+        return view('backoffice.contentManagement.tags.show', compact('contentTag'));
     }
 
     public function destroy(ContentTag $contentTag)

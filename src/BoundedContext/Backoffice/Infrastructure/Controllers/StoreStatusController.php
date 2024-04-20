@@ -52,14 +52,14 @@ class StoreStatusController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.storeStatuses.index');
+        return view('backoffice.settingManagement.storeStatuses.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('store_status_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.storeStatuses.create');
+        return view('backoffice.settingManagement.storeStatuses.create');
     }
 
     public function store(StoreStoreStatusRequest $request)
@@ -73,7 +73,7 @@ class StoreStatusController extends Controller
     {
         abort_if(Gate::denies('store_status_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.storeStatuses.edit', compact('storeStatus'));
+        return view('backoffice.settingManagement.storeStatuses.edit', compact('storeStatus'));
     }
 
     public function update(UpdateStoreStatusRequest $request, StoreStatus $storeStatus)
@@ -87,7 +87,7 @@ class StoreStatusController extends Controller
     {
         abort_if(Gate::denies('store_status_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.storeStatuses.show', compact('storeStatus'));
+        return view('backoffice.settingManagement.storeStatuses.show', compact('storeStatus'));
     }
 
     public function destroy(StoreStatus $storeStatus)

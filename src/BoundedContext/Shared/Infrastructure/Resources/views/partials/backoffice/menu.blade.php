@@ -566,7 +566,7 @@
 
                             </i>
                             <p>
-                                {{ trans('cruds.myAccount.title') }}
+                                {{ trans('cruds.customerManagement.title') }}
                                 <i class="right fa fa-fw fa-angle-left nav-icon"></i>
                             </p>
                         </a>

@@ -62,7 +62,7 @@ class FavoriteProductController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.favoriteProducts.index');
+        return view('backoffice.customerManagement.favoriteProducts.index');
     }
 
     public function create()
@@ -71,7 +71,7 @@ class FavoriteProductController extends Controller
 
         $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.favoriteProducts.create', compact('products'));
+        return view('backoffice.customerManagement.favoriteProducts.create', compact('products'));
     }
 
     public function store(StoreFavoriteProductRequest $request)
@@ -89,7 +89,7 @@ class FavoriteProductController extends Controller
 
         $favoriteProduct->load('product', 'created_by');
 
-        return view('backoffice.favoriteProducts.edit', compact('favoriteProduct', 'products'));
+        return view('backoffice.customerManagement.favoriteProducts.edit', compact('favoriteProduct', 'products'));
     }
 
     public function update(UpdateFavoriteProductRequest $request, FavoriteProduct $favoriteProduct)
@@ -105,7 +105,7 @@ class FavoriteProductController extends Controller
 
         $favoriteProduct->load('product', 'created_by');
 
-        return view('backoffice.favoriteProducts.show', compact('favoriteProduct'));
+        return view('backoffice.customerManagement.favoriteProducts.show', compact('favoriteProduct'));
     }
 
     public function destroy(FavoriteProduct $favoriteProduct)

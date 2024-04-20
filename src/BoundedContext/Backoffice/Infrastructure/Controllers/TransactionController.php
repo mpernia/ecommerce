@@ -78,7 +78,7 @@ class TransactionController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.transactions.index');
+        return view('backoffice.advertiserManagement.transactions.index');
     }
 
     public function create()
@@ -93,7 +93,7 @@ class TransactionController extends Controller
 
         $currencies = Currency::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.transactions.create', compact('currencies', 'income_sources', 'projects', 'transaction_types'));
+        return view('backoffice.advertiserManagement.transactions.create', compact('currencies', 'income_sources', 'stores', 'transaction_types'));
     }
 
     public function store(StoreTransactionRequest $request)
@@ -117,7 +117,7 @@ class TransactionController extends Controller
 
         $transaction->load('project', 'transaction_type', 'income_source', 'currency', 'created_by');
 
-        return view('backoffice.transactions.edit', compact('currencies', 'income_sources', 'projects', 'transaction', 'transaction_types'));
+        return view('backoffice.advertiserManagement.transactions.edit', compact('currencies', 'income_sources', 'stores', 'transaction', 'transaction_types'));
     }
 
     public function update(UpdateTransactionRequest $request, Transaction $transaction)
@@ -133,7 +133,7 @@ class TransactionController extends Controller
 
         $transaction->load('project', 'transaction_type', 'income_source', 'currency', 'created_by');
 
-        return view('backoffice.transactions.show', compact('transaction'));
+        return view('backoffice.advertiserManagement.transactions.show', compact('transaction'));
     }
 
     public function destroy(Transaction $transaction)

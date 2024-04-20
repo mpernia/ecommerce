@@ -66,7 +66,7 @@ class AdvertiserReportController extends Controller
             $currentProject = '';
         }
 
-        return view('backoffice.advertiserReports.index', compact(
+        return view('backoffice.advertiserManagement.reports.index', compact(
             'entries',
             'stores',
             'currentProject'

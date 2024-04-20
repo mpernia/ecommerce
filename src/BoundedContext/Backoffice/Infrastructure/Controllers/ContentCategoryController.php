@@ -65,7 +65,7 @@ class ContentCategoryController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.contentCategories.index');
+        return view('backoffice.contentManagement.categories.index');
     }
 
     public function create()
@@ -74,7 +74,7 @@ class ContentCategoryController extends Controller
 
         $parents = ContentCategory::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.contentCategories.create', compact('parents'));
+        return view('backoffice.contentManagement.categories.create', compact('parents'));
     }
 
     public function store(StoreContentCategoryRequest $request)
@@ -96,7 +96,7 @@ class ContentCategoryController extends Controller
 
         $contentCategory->load('parent');
 
-        return view('backoffice.contentCategories.edit', compact('contentCategory', 'parents'));
+        return view('backoffice.contentManagement.categories.edit', compact('contentCategory', 'parents'));
     }
 
     public function update(UpdateContentCategoryRequest $request, ContentCategory $contentCategory)
@@ -112,7 +112,7 @@ class ContentCategoryController extends Controller
 
         $contentCategory->load('parent');
 
-        return view('backoffice.contentCategories.show', compact('contentCategory'));
+        return view('backoffice.contentManagement.categories.show', compact('contentCategory'));
     }
 
     public function destroy(ContentCategory $contentCategory)

@@ -63,7 +63,7 @@ class FaqQuestionController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.faqQuestions.index');
+        return view('backoffice.faqManagement.questions.index');
     }
 
     public function create()
@@ -72,7 +72,7 @@ class FaqQuestionController extends Controller
 
         $categories = FaqCategory::pluck('category', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.faqQuestions.create', compact('categories'));
+        return view('backoffice.faqManagement.questions.create', compact('categories'));
     }
 
     public function store(StoreFaqQuestionRequest $request)
@@ -90,7 +90,7 @@ class FaqQuestionController extends Controller
 
         $faqQuestion->load('category');
 
-        return view('backoffice.faqQuestions.edit', compact('categories', 'faqQuestion'));
+        return view('backoffice.faqManagement.questions.edit', compact('categories', 'faqQuestion'));
     }
 
     public function update(UpdateFaqQuestionRequest $request, FaqQuestion $faqQuestion)
@@ -106,7 +106,7 @@ class FaqQuestionController extends Controller
 
         $faqQuestion->load('category');
 
-        return view('backoffice.faqQuestions.show', compact('faqQuestion'));
+        return view('backoffice.faqManagement.questions.show', compact('faqQuestion'));
     }
 
     public function destroy(FaqQuestion $faqQuestion)

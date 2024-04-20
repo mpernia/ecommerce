@@ -61,13 +61,13 @@ class AuditLogsController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.auditLogs.index');
+        return view('backoffice.userManagement.auditLogs.index');
     }
 
     public function show(AuditLog $auditLog)
     {
         abort_if(Gate::denies('audit_log_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.auditLogs.show', compact('auditLog'));
+        return view('backoffice.userManagement.auditLogs.show', compact('auditLog'));
     }
 }

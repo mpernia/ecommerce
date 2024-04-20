@@ -55,14 +55,14 @@ class KnownHostController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.knownHosts.index');
+        return view('backoffice.affiliateManagement.knownHosts.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('known_host_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.knownHosts.create');
+        return view('backoffice.affiliateManagement.knownHosts.create');
     }
 
     public function store(StoreKnownHostRequest $request)
@@ -76,7 +76,7 @@ class KnownHostController extends Controller
     {
         abort_if(Gate::denies('known_host_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.knownHosts.edit', compact('knownHost'));
+        return view('backoffice.affiliateManagement.knownHosts.edit', compact('knownHost'));
     }
 
     public function update(UpdateKnownHostRequest $request, KnownHost $knownHost)
@@ -90,7 +90,7 @@ class KnownHostController extends Controller
     {
         abort_if(Gate::denies('known_host_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.knownHosts.show', compact('knownHost'));
+        return view('backoffice.affiliateManagement.knownHosts.show', compact('knownHost'));
     }
 
     public function destroy(KnownHost $knownHost)

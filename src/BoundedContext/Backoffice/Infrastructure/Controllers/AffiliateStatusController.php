@@ -52,14 +52,14 @@ class AffiliateStatusController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.affiliateStatuses.index');
+        return view('backoffice.settingManagement.affiliateStatuses.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('affiliate_status_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.affiliateStatuses.create');
+        return view('backoffice.settingManagement.affiliateStatuses.create');
     }
 
     public function store(StoreAffiliateStatusRequest $request)
@@ -73,7 +73,7 @@ class AffiliateStatusController extends Controller
     {
         abort_if(Gate::denies('affiliate_status_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.affiliateStatuses.edit', compact('affiliateStatus'));
+        return view('backoffice.settingManagement.affiliateStatuses.edit', compact('affiliateStatus'));
     }
 
     public function update(UpdateAffiliateStatusRequest $request, AffiliateStatus $affiliateStatus)
@@ -87,7 +87,7 @@ class AffiliateStatusController extends Controller
     {
         abort_if(Gate::denies('affiliate_status_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.affiliateStatuses.show', compact('affiliateStatus'));
+        return view('backoffice.settingManagement.affiliateStatuses.show', compact('affiliateStatus'));
     }
 
     public function destroy(AffiliateStatus $affiliateStatus)

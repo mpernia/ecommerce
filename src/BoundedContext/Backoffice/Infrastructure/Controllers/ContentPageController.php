@@ -88,7 +88,7 @@ class ContentPageController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.contentPages.index');
+        return view('backoffice.contentManagement.pages.index');
     }
 
     public function create()
@@ -99,7 +99,7 @@ class ContentPageController extends Controller
 
         $tags = ContentTag::pluck('name', 'id');
 
-        return view('backoffice.contentPages.create', compact('categories', 'tags'));
+        return view('backoffice.contentManagement.pages.create', compact('categories', 'tags'));
     }
 
     public function store(StoreContentPageRequest $request)
@@ -128,7 +128,7 @@ class ContentPageController extends Controller
 
         $contentPage->load('categories', 'tags');
 
-        return view('backoffice.contentPages.edit', compact('categories', 'contentPage', 'tags'));
+        return view('backoffice.contentManagement.pages.edit', compact('categories', 'contentPage', 'tags'));
     }
 
     public function update(UpdateContentPageRequest $request, ContentPage $contentPage)
@@ -156,7 +156,7 @@ class ContentPageController extends Controller
 
         $contentPage->load('categories', 'tags');
 
-        return view('backoffice.contentPages.show', compact('contentPage'));
+        return view('backoffice.contentManagement.pages.show', compact('contentPage'));
     }
 
     public function destroy(ContentPage $contentPage)

@@ -58,14 +58,14 @@ class CurrencyController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.currencies.index');
+        return view('backoffice.settingManagement.currencies.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('currency_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.currencies.create');
+        return view('backoffice.settingManagement.currencies.create');
     }
 
     public function store(StoreCurrencyRequest $request)
@@ -79,7 +79,7 @@ class CurrencyController extends Controller
     {
         abort_if(Gate::denies('currency_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.currencies.edit', compact('currency'));
+        return view('backoffice.settingManagement.currencies.edit', compact('currency'));
     }
 
     public function update(UpdateCurrencyRequest $request, Currency $currency)
@@ -93,7 +93,7 @@ class CurrencyController extends Controller
     {
         abort_if(Gate::denies('currency_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.currencies.show', compact('currency'));
+        return view('backoffice.settingManagement.currencies.show', compact('currency'));
     }
 
     public function destroy(Currency $currency)

@@ -781,7 +781,7 @@ return [
             'created_by_helper'      => ' ',
         ],
     ],
-    'myAccount' => [
+    'customerManagement' => [
         'title'          => 'My Account',
         'title_singular' => 'My Account',
     ],

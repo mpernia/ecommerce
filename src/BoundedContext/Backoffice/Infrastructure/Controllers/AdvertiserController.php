@@ -77,7 +77,7 @@ class AdvertiserController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.advertisers.index');
+        return view('backoffice.advertiserManagement.advertisers.index');
     }
 
     public function create()
@@ -86,7 +86,7 @@ class AdvertiserController extends Controller
 
         $statuses = AdvertiserStatus::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.advertisers.create', compact('statuses'));
+        return view('backoffice.advertiserManagement.advertisers.create', compact('statuses'));
     }
 
     public function store(StoreAdvertiserRequest $request)
@@ -104,7 +104,7 @@ class AdvertiserController extends Controller
 
         $advertiser->load('status', 'created_by');
 
-        return view('backoffice.advertisers.edit', compact('advertiser', 'statuses'));
+        return view('backoffice.advertiserManagement.advertisers.edit', compact('advertiser', 'statuses'));
     }
 
     public function update(UpdateAdvertiserRequest $request, Advertiser $advertiser)
@@ -120,7 +120,7 @@ class AdvertiserController extends Controller
 
         $advertiser->load('status', 'created_by');
 
-        return view('backoffice.advertisers.show', compact('advertiser'));
+        return view('backoffice.advertiserManagement.advertisers.show', compact('advertiser'));
     }
 
     public function destroy(Advertiser $advertiser)

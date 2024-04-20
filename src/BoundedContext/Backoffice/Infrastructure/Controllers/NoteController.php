@@ -57,7 +57,7 @@ class NoteController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.notes.index');
+        return view('backoffice.advertiserManagement.notes.index');
     }
 
     public function create()
@@ -66,7 +66,7 @@ class NoteController extends Controller
 
         $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.notes.create', compact('stores'));
+        return view('backoffice.advertiserManagement.notes.create', compact('stores'));
     }
 
     public function store(StoreNoteRequest $request)
@@ -84,7 +84,7 @@ class NoteController extends Controller
 
         $note->load('project', 'created_by');
 
-        return view('backoffice.notes.edit', compact('note', 'stores'));
+        return view('backoffice.advertiserManagement.notes.edit', compact('note', 'stores'));
     }
 
     public function update(UpdateNoteRequest $request, Note $note)
@@ -100,7 +100,7 @@ class NoteController extends Controller
 
         $note->load('project', 'created_by');
 
-        return view('backoffice.notes.show', compact('note'));
+        return view('backoffice.advertiserManagement.notes.show', compact('note'));
     }
 
     public function destroy(Note $note)

@@ -52,14 +52,14 @@ class TransactionTypeController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.transactionTypes.index');
+        return view('backoffice.settingManagement.transactionTypes.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('transaction_type_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.transactionTypes.create');
+        return view('backoffice.settingManagement.transactionTypes.create');
     }
 
     public function store(StoreTransactionTypeRequest $request)
@@ -73,7 +73,7 @@ class TransactionTypeController extends Controller
     {
         abort_if(Gate::denies('transaction_type_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.transactionTypes.edit', compact('transactionType'));
+        return view('backoffice.settingManagement.transactionTypes.edit', compact('transactionType'));
     }
 
     public function update(UpdateTransactionTypeRequest $request, TransactionType $transactionType)
@@ -87,7 +87,7 @@ class TransactionTypeController extends Controller
     {
         abort_if(Gate::denies('transaction_type_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.transactionTypes.show', compact('transactionType'));
+        return view('backoffice.settingManagement.transactionTypes.show', compact('transactionType'));
     }
 
     public function destroy(TransactionType $transactionType)

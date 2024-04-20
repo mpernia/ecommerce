@@ -61,7 +61,7 @@ class AffiliateCampaignController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.affiliateCampaigns.index');
+        return view('backoffice.affiliateManagement.campaigns.index');
     }
 
     public function create()
@@ -72,7 +72,7 @@ class AffiliateCampaignController extends Controller
 
         $campaigns = Campaign::pluck('url', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.affiliateCampaigns.create', compact('affiliates', 'campaigns'));
+        return view('backoffice.affiliateManagement.campaigns.create', compact('affiliates', 'campaigns'));
     }
 
     public function store(StoreAffiliateCampaignRequest $request)
@@ -92,7 +92,7 @@ class AffiliateCampaignController extends Controller
 
         $affiliateCampaign->load('affiliate', 'campaign', 'created_by');
 
-        return view('backoffice.affiliateCampaigns.edit', compact('affiliateCampaign', 'affiliates', 'campaigns'));
+        return view('backoffice.affiliateManagement.campaigns.edit', compact('affiliateCampaign', 'affiliates', 'campaigns'));
     }
 
     public function update(UpdateAffiliateCampaignRequest $request, AffiliateCampaign $affiliateCampaign)
@@ -108,7 +108,7 @@ class AffiliateCampaignController extends Controller
 
         $affiliateCampaign->load('affiliate', 'campaign', 'created_by');
 
-        return view('backoffice.affiliateCampaigns.show', compact('affiliateCampaign'));
+        return view('backoffice.affiliateManagement.campaigns.show', compact('affiliateCampaign'));
     }
 
     public function destroy(AffiliateCampaign $affiliateCampaign)

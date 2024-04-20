@@ -52,14 +52,14 @@ class AdvertiserStatusController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.advertiserStatuses.index');
+        return view('backoffice.settingManagement.advertiserStatuses.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('advertiser_status_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.advertiserStatuses.create');
+        return view('backoffice.settingManagement.advertiserStatuses.create');
     }
 
     public function store(StoreAdvertiserStatusRequest $request)
@@ -73,7 +73,7 @@ class AdvertiserStatusController extends Controller
     {
         abort_if(Gate::denies('advertiser_status_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.advertiserStatuses.edit', compact('advertiserStatus'));
+        return view('backoffice.settingManagement.advertiserStatuses.edit', compact('advertiserStatus'));
     }
 
     public function update(UpdateAdvertiserStatusRequest $request, AdvertiserStatus $advertiserStatus)
@@ -87,7 +87,7 @@ class AdvertiserStatusController extends Controller
     {
         abort_if(Gate::denies('advertiser_status_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.advertiserStatuses.show', compact('advertiserStatus'));
+        return view('backoffice.settingManagement.advertiserStatuses.show', compact('advertiserStatus'));
     }
 
     public function destroy(AdvertiserStatus $advertiserStatus)

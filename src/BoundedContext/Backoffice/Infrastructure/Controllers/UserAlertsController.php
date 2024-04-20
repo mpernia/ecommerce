@@ -64,7 +64,7 @@ class UserAlertsController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.userAlerts.index');
+        return view('backoffice.userManagement.userAlerts.index');
     }
 
     public function create()
@@ -73,7 +73,7 @@ class UserAlertsController extends Controller
 
         $users = User::pluck('name', 'id');
 
-        return view('backoffice.userAlerts.create', compact('users'));
+        return view('backoffice.userManagement.userAlerts.create', compact('users'));
     }
 
     public function store(StoreUserAlertRequest $request)
@@ -90,7 +90,7 @@ class UserAlertsController extends Controller
 
         $userAlert->load('users');
 
-        return view('backoffice.userAlerts.show', compact('userAlert'));
+        return view('backoffice.userManagement.userAlerts.show', compact('userAlert'));
     }
 
     public function destroy(UserAlert $userAlert)

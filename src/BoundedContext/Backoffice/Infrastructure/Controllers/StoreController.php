@@ -68,7 +68,7 @@ class StoreController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.stores.index');
+        return view('backoffice.advertiserManagement.stores.index');
     }
 
     public function create()
@@ -79,7 +79,7 @@ class StoreController extends Controller
 
         $statuses = StoreStatus::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.stores.create', compact('advertisers', 'statuses'));
+        return view('backoffice.advertiserManagement.stores.create', compact('advertisers', 'statuses'));
     }
 
     public function store(StoreStoreRequest $request)
@@ -99,7 +99,7 @@ class StoreController extends Controller
 
         $store->load('advertiser', 'status', 'created_by');
 
-        return view('backoffice.stores.edit', compact('advertisers', 'store', 'statuses'));
+        return view('backoffice.advertiserManagement.stores.edit', compact('advertisers', 'store', 'statuses'));
     }
 
     public function update(UpdateStoreRequest $request, Store $store)
@@ -115,7 +115,7 @@ class StoreController extends Controller
 
         $store->load('advertiser', 'status', 'created_by');
 
-        return view('backoffice.stores.show', compact('store'));
+        return view('backoffice.advertiserManagement.stores.show', compact('store'));
     }
 
     public function destroy(Store $store)

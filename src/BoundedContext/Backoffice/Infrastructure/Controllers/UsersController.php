@@ -74,7 +74,7 @@ class UsersController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.users.index');
+        return view('backoffice.userManagement.users.index');
     }
 
     public function create()
@@ -83,7 +83,7 @@ class UsersController extends Controller
 
         $roles = Role::pluck('title', 'id');
 
-        return view('backoffice.users.create', compact('roles'));
+        return view('backoffice.userManagement.users.create', compact('roles'));
     }
 
     public function store(StoreUserRequest $request)
@@ -102,7 +102,7 @@ class UsersController extends Controller
 
         $user->load('roles');
 
-        return view('backoffice.users.edit', compact('roles', 'user'));
+        return view('backoffice.userManagement.users.edit', compact('roles', 'user'));
     }
 
     public function update(UpdateUserRequest $request, User $user)
@@ -119,7 +119,7 @@ class UsersController extends Controller
 
         $user->load('roles', 'userUserAlerts');
 
-        return view('backoffice.users.show', compact('user'));
+        return view('backoffice.userManagement.users.show', compact('user'));
     }
 
     public function destroy(User $user)
