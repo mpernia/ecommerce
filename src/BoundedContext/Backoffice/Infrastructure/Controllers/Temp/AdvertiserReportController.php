@@ -59,7 +59,7 @@ class AdvertiserReportController extends Controller
                 $entries[$date][$currency]['total'] += $total;
             }
         }
-        $stores = Store::pluck('name', 'id')->prepend('--- ' . trans('cruds.clientReport.reports.allProjects') . ' ---', '');
+        $stores = Store::pluck('name', 'id')->prepend('--- ' . trans('cruds.advertiserReport.reports.allProjects') . ' ---', '');
         if ($request->has('store')) {
             $currentProject = $request->get('store');
         } else {

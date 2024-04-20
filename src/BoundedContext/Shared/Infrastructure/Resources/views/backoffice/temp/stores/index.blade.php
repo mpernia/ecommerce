@@ -100,7 +100,7 @@
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
 { data: 'name', name: 'name' },
-{ data: 'advertiser_first_name', name: 'client.first_name' },
+{ data: 'advertiser_first_name', name: 'advertiser.first_name' },
 { data: 'description', name: 'description' },
 { data: 'start_date', name: 'start_date' },
 { data: 'budget', name: 'budget' },

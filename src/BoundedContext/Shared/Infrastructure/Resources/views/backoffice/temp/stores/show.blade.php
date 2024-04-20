@@ -36,7 +36,7 @@
                             {{ trans('cruds.store.fields.advertiser') }}
                         </th>
                         <td>
-                            {{ $store->client->first_name ?? '' }}
+                            {{ $store->advertiser->first_name ?? '' }}
                         </td>
                     </tr>
                     <tr>

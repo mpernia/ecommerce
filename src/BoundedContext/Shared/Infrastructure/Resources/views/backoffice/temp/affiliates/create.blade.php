@@ -42,14 +42,14 @@
                 <span class="help-block">{{ trans('cruds.affiliate.fields.budget_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="advertisers">{{ trans('cruds.affiliate.fields.client') }}</label>
+                <label for="advertisers">{{ trans('cruds.affiliate.fields.advertiser') }}</label>
                 <div style="padding-bottom: 4px">
                     <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
                     <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
                 </div>
-                <select class="form-control select2 {{ $errors->has('advertisers') ? 'is-invalid' : '' }}" name="clients[]" id="clients" multiple>
-                    @foreach($clients as $id => $client)
-                        <option value="{{ $id }}" {{ in_array($id, old('advertisers', [])) ? 'selected' : '' }}>{{ $client }}</option>
+                <select class="form-control select2 {{ $errors->has('advertisers') ? 'is-invalid' : '' }}" name="advertisers[]" id="advertisers" multiple>
+                    @foreach($advertisers as $id => $advertiser)
+                        <option value="{{ $id }}" {{ in_array($id, old('advertisers', [])) ? 'selected' : '' }}>{{ $advertiser }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('advertisers'))

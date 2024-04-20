@@ -49,7 +49,7 @@ class StoreController extends Controller
                 return $row->name ? $row->name : '';
             });
             $table->addColumn('advertiser_first_name', function ($row) {
-                return $row->client ? $row->client->first_name : '';
+                return $row->advertiser ? $row->advertiser->first_name : '';
             });
 
             $table->editColumn('description', function ($row) {
@@ -63,7 +63,7 @@ class StoreController extends Controller
                 return $row->status ? $row->status->name : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'client', 'status']);
+            $table->rawColumns(['actions', 'placeholder', 'advertiser', 'status']);
 
             return $table->make(true);
         }
@@ -75,11 +75,11 @@ class StoreController extends Controller
     {
         abort_if(Gate::denies('store_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $clients = Advertiser::pluck('first_name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $advertisers = Advertiser::pluck('first_name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $statuses = StoreStatus::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.stores.create', compact('clients', 'statuses'));
+        return view('backoffice.temp.stores.create', compact('advertisers', 'statuses'));
     }
 
     public function store(StoreStoreRequest $request)
@@ -93,13 +93,13 @@ class StoreController extends Controller
     {
         abort_if(Gate::denies('store_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $clients = Advertiser::pluck('first_name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $advertisers = Advertiser::pluck('first_name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $statuses = StoreStatus::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $store->load('client', 'status', 'created_by');
+        $store->load('advertiser', 'status', 'created_by');
 
-        return view('backoffice.temp.stores.edit', compact('clients', 'store', 'statuses'));
+        return view('backoffice.temp.stores.edit', compact('advertisers', 'store', 'statuses'));
     }
 
     public function update(UpdateStoreRequest $request, Store $store)
@@ -113,7 +113,7 @@ class StoreController extends Controller
     {
         abort_if(Gate::denies('store_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $store->load('client', 'status', 'created_by');
+        $store->load('advertiser', 'status', 'created_by');
 
         return view('backoffice.temp.stores.show', compact('store'));
     }

@@ -23,14 +23,14 @@
                 <span class="help-block">{{ trans('cruds.sale.fields.product_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="advertiser_id">{{ trans('cruds.sale.fields.client') }}</label>
+                <label for="advertiser_id">{{ trans('cruds.sale.fields.advertiser') }}</label>
                 <select class="form-control select2 {{ $errors->has('advertiser') ? 'is-invalid' : '' }}" name="advertiser_id" id="advertiser_id">
-                    @foreach($clients as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('advertiser_id') ? old('advertiser_id') : $sale->client->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @foreach($advertisers as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('advertiser_id') ? old('advertiser_id') : $sale->advertiser->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('client'))
-                    <span class="text-danger">{{ $errors->first('client') }}</span>
+                @if($errors->has('advertiser'))
+                    <span class="text-danger">{{ $errors->first('advertiser') }}</span>
                 @endif
                 <span class="help-block">{{ trans('cruds.sale.fields.advertiser_helper') }}</span>
             </div>

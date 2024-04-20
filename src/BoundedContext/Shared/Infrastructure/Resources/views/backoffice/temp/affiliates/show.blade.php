@@ -57,11 +57,11 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.affiliate.fields.client') }}
+                            {{ trans('cruds.affiliate.fields.advertiser') }}
                         </th>
                         <td>
-                            @foreach($affiliate->clients as $key => $client)
-                                <span class="label label-info">{{ $client->first_name }}</span>
+                            @foreach($affiliate->advertisers as $key => $advertiser)
+                                <span class="label label-info">{{ $advertiser->first_name }}</span>
                             @endforeach
                         </td>
                     </tr>

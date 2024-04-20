@@ -55,10 +55,10 @@ class AffiliateController extends Controller
             $table->editColumn('budget', function ($row) {
                 return $row->budget ? $row->budget : '';
             });
-            $table->editColumn('client', function ($row) {
+            $table->editColumn('advertiser', function ($row) {
                 $labels = [];
-                foreach ($row->clients as $client) {
-                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $client->first_name);
+                foreach ($row->advertisers as $advertiser) {
+                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $advertiser->first_name);
                 }
 
                 return implode(' ', $labels);
@@ -67,7 +67,7 @@ class AffiliateController extends Controller
                 return $row->status ? $row->status->name : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'client', 'status']);
+            $table->rawColumns(['actions', 'placeholder', 'advertiser', 'status']);
 
             return $table->make(true);
         }
@@ -79,17 +79,17 @@ class AffiliateController extends Controller
     {
         abort_if(Gate::denies('affiliate_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $clients = Advertiser::pluck('first_name', 'id');
+        $advertisers = Advertiser::pluck('first_name', 'id');
 
         $statuses = AffiliateStatus::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.affiliates.create', compact('clients', 'statuses'));
+        return view('backoffice.temp.affiliates.create', compact('advertisers', 'statuses'));
     }
 
     public function store(StoreAffiliateRequest $request)
     {
         $affiliate = Affiliate::create($request->all());
-        $affiliate->clients()->sync($request->input('advertisers', []));
+        $affiliate->advertisers()->sync($request->input('advertisers', []));
 
         return redirect()->route('backoffice.affiliates.index');
     }
@@ -98,19 +98,19 @@ class AffiliateController extends Controller
     {
         abort_if(Gate::denies('affiliate_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $clients = Advertiser::pluck('first_name', 'id');
+        $advertisers = Advertiser::pluck('first_name', 'id');
 
         $statuses = AffiliateStatus::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $affiliate->load('advertisers', 'status', 'created_by');
 
-        return view('backoffice.temp.affiliates.edit', compact('affiliate', 'clients', 'statuses'));
+        return view('backoffice.temp.affiliates.edit', compact('affiliate', 'advertisers', 'statuses'));
     }
 
     public function update(UpdateAffiliateRequest $request, Affiliate $affiliate)
     {
         $affiliate->update($request->all());
-        $affiliate->clients()->sync($request->input('advertisers', []));
+        $affiliate->advertisers()->sync($request->input('advertisers', []));
 
         return redirect()->route('backoffice.affiliates.index');
     }

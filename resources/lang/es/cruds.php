@@ -426,8 +426,8 @@ return [
         ],
     ],
     'advertiserStatus' => [
-        'title'          => 'Estados del cliente',
-        'title_singular' => 'Estado del Cliente',
+        'title'          => 'Estados del Anunciante',
+        'title_singular' => 'Estado del Anunciante',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -462,8 +462,8 @@ return [
         'title_singular' => 'Gestión de Proyectos',
     ],
     'advertiser' => [
-        'title'          => 'Clientes',
-        'title_singular' => 'Cliente',
+        'title'          => 'Anunciantes',
+        'title_singular' => 'Anunciante',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -599,7 +599,7 @@ return [
             'created_by_helper'       => ' ',
         ],
     ],
-    'clientReport' => [
+    'advertiserReport' => [
         'title'          => 'Informes',
         'title_singular' => 'Informe',
         'reports'        => [
@@ -755,7 +755,7 @@ return [
             'deleted_at_helper'  => ' ',
             'created_by'         => 'Created By',
             'created_by_helper'  => ' ',
-            'client'             => 'Advertiser',
+            'advertiser'             => 'Advertiser',
             'advertiser_helper'      => ' ',
             'status'             => 'Status',
             'status_helper'      => ' ',
@@ -913,7 +913,7 @@ return [
             'id_helper'         => ' ',
             'product'           => 'Product',
             'product_helper'    => ' ',
-            'client'            => 'Advertiser',
+            'advertiser'            => 'Advertiser',
             'advertiser_helper'     => ' ',
             'created_at'        => 'Created at',
             'created_at_helper' => ' ',

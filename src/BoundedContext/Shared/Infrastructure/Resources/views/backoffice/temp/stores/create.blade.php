@@ -19,8 +19,8 @@
             </div>
             <div class="form-group">
                 <label class="required" for="advertiser_id">{{ trans('cruds.store.fields.advertiser') }}</label>
-                <select class="form-control select2 {{ $errors->has('client') ? 'is-invalid' : '' }}" name="advertiser_id" id="advertiser_id" required>
-                    @foreach($clients as $id => $entry)
+                <select class="form-control select2 {{ $errors->has('advertiser') ? 'is-invalid' : '' }}" name="advertiser_id" id="advertiser_id" required>
+                    @foreach($advertisers as $id => $entry)
                         <option value="{{ $id }}" {{ old('advertiser_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>

@@ -20,9 +20,9 @@
             </div>
             <div class="form-group">
                 <label class="required" for="advertiser_id">{{ trans('cruds.store.fields.advertiser') }}</label>
-                <select class="form-control select2 {{ $errors->has('client') ? 'is-invalid' : '' }}" name="advertiser_id" id="advertiser_id" required>
-                    @foreach($clients as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('advertiser_id') ? old('advertiser_id') : $store->client->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                <select class="form-control select2 {{ $errors->has('advertiser') ? 'is-invalid' : '' }}" name="advertiser_id" id="advertiser_id" required>
+                    @foreach($advertisers as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('advertiser_id') ? old('advertiser_id') : $store->advertiser->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('advertiser'))

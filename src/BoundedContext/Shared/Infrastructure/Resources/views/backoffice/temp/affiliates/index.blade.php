@@ -37,7 +37,7 @@
                         {{ trans('cruds.affiliate.fields.budget') }}
                     </th>
                     <th>
-                        {{ trans('cruds.affiliate.fields.client') }}
+                        {{ trans('cruds.affiliate.fields.advertiser') }}
                     </th>
                     <th>
                         {{ trans('cruds.affiliate.fields.status') }}
@@ -103,7 +103,7 @@
 { data: 'description', name: 'description' },
 { data: 'start_date', name: 'start_date' },
 { data: 'budget', name: 'budget' },
-{ data: 'client', name: 'advertisers.first_name' },
+{ data: 'advertiser', name: 'advertisers.first_name' },
 { data: 'status_name', name: 'status.name' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],

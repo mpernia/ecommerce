@@ -22,7 +22,7 @@ class SaleController extends Controller
         abort_if(Gate::denies('sale_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Sale::with(['product', 'client', 'tracking'])->select(sprintf('%s.*', (new Sale)->table));
+            $query = Sale::with(['product', 'advertiser', 'tracking'])->select(sprintf('%s.*', (new Sale)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -51,14 +51,14 @@ class SaleController extends Controller
             });
 
             $table->addColumn('advertiser_company', function ($row) {
-                return $row->client ? $row->client->company : '';
+                return $row->advertiser ? $row->advertiser->company : '';
             });
 
             $table->addColumn('tracking_tracking', function ($row) {
                 return $row->tracking ? $row->tracking->tracking : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'product', 'client', 'tracking']);
+            $table->rawColumns(['actions', 'placeholder', 'product', 'advertiser', 'tracking']);
 
             return $table->make(true);
         }
@@ -72,11 +72,11 @@ class SaleController extends Controller
 
         $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $clients = Advertiser::pluck('company', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $advertisers = Advertiser::pluck('company', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $trackings = Lead::pluck('tracking', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.sales.create', compact('clients', 'products', 'trackings'));
+        return view('backoffice.temp.sales.create', compact('advertisers', 'products', 'trackings'));
     }
 
     public function store(StoreSaleRequest $request)
@@ -92,13 +92,13 @@ class SaleController extends Controller
 
         $products = Product::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $clients = Advertiser::pluck('company', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $advertisers = Advertiser::pluck('company', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $trackings = Lead::pluck('tracking', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $sale->load('product', 'client', 'tracking');
+        $sale->load('product', 'advertiser', 'tracking');
 
-        return view('backoffice.temp.sales.edit', compact('clients', 'products', 'sale', 'trackings'));
+        return view('backoffice.temp.sales.edit', compact('advertisers', 'products', 'sale', 'trackings'));
     }
 
     public function update(UpdateSaleRequest $request, Sale $sale)
@@ -112,7 +112,7 @@ class SaleController extends Controller
     {
         abort_if(Gate::denies('sale_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $sale->load('product', 'client', 'tracking');
+        $sale->load('product', 'advertiser', 'tracking');
 
         return view('backoffice.temp.sales.show', compact('sale'));
     }
