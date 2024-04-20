@@ -1,31 +1,31 @@
 @extends('layouts.backoffice')
 @section('content')
-@can('project_status_create')
+@can('store_status_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('backoffice.store-statuses.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.projectStatus.title_singular') }}
+                {{ trans('global.add') }} {{ trans('cruds.storeStatus.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.projectStatus.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.storeStatus.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
-        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-ProjectStatus">
+        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-StoreStatus">
             <thead>
                 <tr>
                     <th width="10">
 
                     </th>
                     <th>
-                        {{ trans('cruds.projectStatus.fields.id') }}
+                        {{ trans('cruds.storeStatus.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.projectStatus.fields.name') }}
+                        {{ trans('cruds.storeStatus.fields.name') }}
                     </th>
                     <th>
                         &nbsp;
@@ -44,7 +44,7 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('project_status_delete')
+@can('store_status_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
   let deleteButton = {
     text: deleteButtonTrans,
@@ -91,7 +91,7 @@
     order: [[ 2, 'asc' ]],
     pageLength: 100,
   };
-  let table = $('.datatable-ProjectStatus').DataTable(dtOverrideGlobals);
+  let table = $('.datatable-StoreStatus').DataTable(dtOverrideGlobals);
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

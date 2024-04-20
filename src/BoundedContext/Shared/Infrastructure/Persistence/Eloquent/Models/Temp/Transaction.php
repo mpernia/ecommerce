@@ -23,7 +23,7 @@ class Transaction extends Model
     ];
 
     protected $fillable = [
-        'project_id',
+        'store_id',
         'transaction_type_id',
         'income_source_id',
         'amount',
@@ -44,7 +44,7 @@ class Transaction extends Model
 
     public function project()
     {
-        return $this->belongsTo(Project::class, 'project_id');
+        return $this->belongsTo(Store::class, 'store_id');
     }
 
     public function transaction_type()

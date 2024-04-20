@@ -4,7 +4,7 @@ namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Note;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Project;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyNoteRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreNoteRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateNoteRequest;
@@ -44,7 +44,7 @@ class NoteController extends Controller
             $table->editColumn('id', function ($row) {
                 return $row->id ? $row->id : '';
             });
-            $table->addColumn('project_name', function ($row) {
+            $table->addColumn('store_name', function ($row) {
                 return $row->project ? $row->project->name : '';
             });
 
@@ -64,9 +64,9 @@ class NoteController extends Controller
     {
         abort_if(Gate::denies('note_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projects = Project::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.notes.create', compact('projects'));
+        return view('backoffice.temp.notes.create', compact('stores'));
     }
 
     public function store(StoreNoteRequest $request)
@@ -80,11 +80,11 @@ class NoteController extends Controller
     {
         abort_if(Gate::denies('note_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projects = Project::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $note->load('project', 'created_by');
 
-        return view('backoffice.temp.notes.edit', compact('note', 'projects'));
+        return view('backoffice.temp.notes.edit', compact('note', 'stores'));
     }
 
     public function update(UpdateNoteRequest $request, Note $note)

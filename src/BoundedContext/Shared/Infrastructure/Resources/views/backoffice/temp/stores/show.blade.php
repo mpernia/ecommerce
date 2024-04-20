@@ -3,13 +3,13 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.project.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.store.title') }}
     </div>
 
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('backoffice.projects.index') }}">
+                <a class="btn btn-default" href="{{ route('backoffice.stores.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -17,64 +17,64 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.id') }}
+                            {{ trans('cruds.store.fields.id') }}
                         </th>
                         <td>
-                            {{ $project->id }}
+                            {{ $store->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.name') }}
+                            {{ trans('cruds.store.fields.name') }}
                         </th>
                         <td>
-                            {{ $project->name }}
+                            {{ $store->name }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.client') }}
+                            {{ trans('cruds.store.fields.advertiser') }}
                         </th>
                         <td>
-                            {{ $project->client->first_name ?? '' }}
+                            {{ $store->client->first_name ?? '' }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.description') }}
+                            {{ trans('cruds.store.fields.description') }}
                         </th>
                         <td>
-                            {{ $project->description }}
+                            {{ $store->description }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.start_date') }}
+                            {{ trans('cruds.store.fields.start_date') }}
                         </th>
                         <td>
-                            {{ $project->start_date }}
+                            {{ $store->start_date }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.budget') }}
+                            {{ trans('cruds.store.fields.budget') }}
                         </th>
                         <td>
-                            {{ $project->budget }}
+                            {{ $store->budget }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.status') }}
+                            {{ trans('cruds.store.fields.status') }}
                         </th>
                         <td>
-                            {{ $project->status->name ?? '' }}
+                            {{ $store->status->name ?? '' }}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('backoffice.projects.index') }}">
+                <a class="btn btn-default" href="{{ route('backoffice.stores.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

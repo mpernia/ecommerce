@@ -4,7 +4,7 @@ namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Document;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Project;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyDocumentRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreDocumentRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateDocumentRequest;
@@ -24,7 +24,7 @@ class DocumentController extends Controller
         abort_if(Gate::denies('document_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Document::with(['project', 'created_by'])->select(sprintf('%s.*', (new Document)->table));
+            $query = Document::with(['store', 'created_by'])->select(sprintf('%s.*', (new Document)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -48,7 +48,7 @@ class DocumentController extends Controller
             $table->editColumn('id', function ($row) {
                 return $row->id ? $row->id : '';
             });
-            $table->addColumn('project_name', function ($row) {
+            $table->addColumn('store_name', function ($row) {
                 return $row->project ? $row->project->name : '';
             });
 
@@ -74,9 +74,9 @@ class DocumentController extends Controller
     {
         abort_if(Gate::denies('document_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projects = Project::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.documents.create', compact('projects'));
+        return view('backoffice.temp.documents.create', compact('stores'));
     }
 
     public function store(StoreDocumentRequest $request)
@@ -98,11 +98,11 @@ class DocumentController extends Controller
     {
         abort_if(Gate::denies('document_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projects = Project::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $document->load('project', 'created_by');
 
-        return view('backoffice.temp.documents.edit', compact('document', 'projects'));
+        return view('backoffice.temp.documents.edit', compact('document', 'stores'));
     }
 
     public function update(UpdateDocumentRequest $request, Document $document)

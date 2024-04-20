@@ -25,7 +25,7 @@
                         {{ trans('cruds.note.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.note.fields.project') }}
+                        {{ trans('cruds.note.fields.store') }}
                     </th>
                     <th>
                         {{ trans('cruds.note.fields.note_text') }}
@@ -87,7 +87,7 @@
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
-{ data: 'project_name', name: 'project.name' },
+{ data: 'store_name', name: 'store.name' },
 { data: 'note_text', name: 'note_text' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
@@ -100,7 +100,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 });
 
 </script>

@@ -5,7 +5,7 @@ namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 use App\Http\Controllers\Controller;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Currency;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\IncomeSource;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Project;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Transaction;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\TransactionType;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyTransactionRequest;
@@ -47,7 +47,7 @@ class TransactionController extends Controller
             $table->editColumn('id', function ($row) {
                 return $row->id ? $row->id : '';
             });
-            $table->addColumn('project_name', function ($row) {
+            $table->addColumn('store_name', function ($row) {
                 return $row->project ? $row->project->name : '';
             });
 
@@ -85,7 +85,7 @@ class TransactionController extends Controller
     {
         abort_if(Gate::denies('transaction_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projects = Project::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $transaction_types = TransactionType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -107,7 +107,7 @@ class TransactionController extends Controller
     {
         abort_if(Gate::denies('transaction_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projects = Project::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $transaction_types = TransactionType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 

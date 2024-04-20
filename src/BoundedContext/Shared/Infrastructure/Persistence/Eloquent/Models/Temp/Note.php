@@ -21,7 +21,7 @@ class Note extends Model
     ];
 
     protected $fillable = [
-        'project_id',
+        'store_id',
         'note_text',
         'created_at',
         'updated_at',
@@ -36,7 +36,7 @@ class Note extends Model
 
     public function project()
     {
-        return $this->belongsTo(Project::class, 'project_id');
+        return $this->belongsTo(Store::class, 'store_id');
     }
 
     public function created_by()

@@ -10,7 +10,7 @@ class UpdateProjectStatusRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('project_status_edit');
+        return Gate::allows('store_status_edit');
     }
 
     public function rules()

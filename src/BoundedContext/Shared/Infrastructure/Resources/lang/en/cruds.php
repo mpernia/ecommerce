@@ -443,9 +443,9 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
-    'projectStatus' => [
-        'title'          => 'Project statuses',
-        'title_singular' => 'Project status',
+    'storeStatus' => [
+        'title'          => 'Store statuses',
+        'title_singular' => 'Store status',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -497,9 +497,9 @@ return [
             'created_by_helper' => ' ',
         ],
     ],
-    'project' => [
-        'title'          => 'Projects',
-        'title_singular' => 'Project',
+    'store' => [
+        'title'          => 'Stores',
+        'title_singular' => 'Store',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -513,7 +513,7 @@ return [
             'start_date_helper'  => ' ',
             'budget'             => 'Budget',
             'budget_helper'      => ' ',
-            'status'             => 'Project Status',
+            'status'             => 'Store Status',
             'status_helper'      => ' ',
             'created_at'         => 'Created at',
             'created_at_helper'  => ' ',
@@ -531,8 +531,8 @@ return [
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
-            'project'           => 'Project',
-            'project_helper'    => ' ',
+            'store'           => 'Store',
+            'store_helper'    => ' ',
             'note_text'         => 'Note Text',
             'note_text_helper'  => ' ',
             'created_at'        => 'Created at',
@@ -551,8 +551,8 @@ return [
         'fields'         => [
             'id'                   => 'ID',
             'id_helper'            => ' ',
-            'project'              => 'Project',
-            'project_helper'       => ' ',
+            'store'              => 'Store',
+            'store_helper'       => ' ',
             'document_file'        => 'File',
             'document_file_helper' => ' ',
             'name'                 => 'Document Name',
@@ -575,8 +575,8 @@ return [
         'fields'         => [
             'id'                      => 'ID',
             'id_helper'               => ' ',
-            'project'                 => 'Project',
-            'project_helper'          => ' ',
+            'store'                 => 'store',
+            'store_helper'          => ' ',
             'transaction_type'        => 'Transaction Type',
             'transaction_type_helper' => ' ',
             'income_source'           => 'Income Source',
@@ -610,7 +610,7 @@ return [
             'expenses'    => 'Expenses',
             'fees'        => 'Fees',
             'total'       => 'Total',
-            'allProjects' => 'All projects',
+            'allStores' => 'All stores',
         ],
     ],
     'contactManagement' => [

@@ -25,10 +25,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.note.fields.project') }}
+                            {{ trans('cruds.note.fields.store') }}
                         </th>
                         <td>
-                            {{ $note->project->name ?? '' }}
+                            {{ $note->store->name ?? '' }}
                         </td>
                     </tr>
                     <tr>

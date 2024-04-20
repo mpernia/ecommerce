@@ -16,7 +16,7 @@ class UpdateDocumentRequest extends FormRequest
     public function rules()
     {
         return [
-            'project_id' => [
+            'store_id' => [
                 'required',
                 'integer',
             ],

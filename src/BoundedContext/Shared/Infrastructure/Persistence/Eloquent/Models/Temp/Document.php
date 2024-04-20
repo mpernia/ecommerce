@@ -28,7 +28,7 @@ class Document extends Model implements HasMedia
     ];
 
     protected $fillable = [
-        'project_id',
+        'store_id',
         'name',
         'description',
         'created_at',
@@ -48,9 +48,9 @@ class Document extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
-    public function project()
+    public function store()
     {
-        return $this->belongsTo(Project::class, 'project_id');
+        return $this->belongsTo(Store::class, 'store_id');
     }
 
     public function getDocumentFileAttribute()

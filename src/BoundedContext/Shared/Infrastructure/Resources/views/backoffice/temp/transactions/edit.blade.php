@@ -11,16 +11,16 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label class="required" for="project_id">{{ trans('cruds.transaction.fields.project') }}</label>
-                <select class="form-control select2 {{ $errors->has('project') ? 'is-invalid' : '' }}" name="project_id" id="project_id" required>
-                    @foreach($projects as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('project_id') ? old('project_id') : $transaction->project->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                <label class="required" for="store_id">{{ trans('cruds.transaction.fields.store') }}</label>
+                <select class="form-control select2 {{ $errors->has('store') ? 'is-invalid' : '' }}" name="store_id" id="store_id" required>
+                    @foreach($stores as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('store_id') ? old('store_id') : $transaction->project->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('project'))
-                    <span class="text-danger">{{ $errors->first('project') }}</span>
+                    <span class="text-danger">{{ $errors->first('store') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.transaction.fields.project_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.transaction.fields.store_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="transaction_type_id">{{ trans('cruds.transaction.fields.transaction_type') }}</label>

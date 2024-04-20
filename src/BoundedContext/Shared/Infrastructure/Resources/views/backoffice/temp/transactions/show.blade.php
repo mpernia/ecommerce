@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.transaction.fields.project') }}
+                            {{ trans('cruds.transaction.fields.store') }}
                         </th>
                         <td>
                             {{ $transaction->project->name ?? '' }}

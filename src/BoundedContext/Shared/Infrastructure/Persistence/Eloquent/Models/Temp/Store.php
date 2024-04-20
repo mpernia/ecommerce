@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Project extends Model
+class Store extends Model
 {
     use SoftDeletes, MultiTenantEloquentModelTrait, HasFactory;
 
-    public $table = 'projects';
+    public $table = 'stores';
 
     protected $dates = [
         'start_date',
@@ -57,7 +57,7 @@ class Project extends Model
 
     public function status()
     {
-        return $this->belongsTo(ProjectStatus::class, 'status_id');
+        return $this->belongsTo(StoreStatus::class, 'status_id');
     }
 
     public function created_by()

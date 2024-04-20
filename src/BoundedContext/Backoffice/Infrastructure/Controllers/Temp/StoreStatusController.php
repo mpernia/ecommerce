@@ -3,7 +3,7 @@
 namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\ProjectStatus;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\StoreStatus;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyProjectStatusRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreProjectStatusRequest;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateProjectStatusRequest;
@@ -12,14 +12,14 @@ use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
-class ProjectStatusController extends Controller
+class StoreStatusController extends Controller
 {
     public function index(Request $request)
     {
-        abort_if(Gate::denies('project_status_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('store_status_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = ProjectStatus::query()->select(sprintf('%s.*', (new ProjectStatus)->table));
+            $query = StoreStatus::query()->select(sprintf('%s.*', (new StoreStatus)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -52,59 +52,59 @@ class ProjectStatusController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.projectStatuses.index');
+        return view('backoffice.temp.storeStatuses.index');
     }
 
     public function create()
     {
-        abort_if(Gate::denies('project_status_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('store_status_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.projectStatuses.create');
+        return view('backoffice.temp.storeStatuses.create');
     }
 
     public function store(StoreProjectStatusRequest $request)
     {
-        $projectStatus = ProjectStatus::create($request->all());
+        $storeStatus = StoreStatus::create($request->all());
 
         return redirect()->route('backoffice.store-statuses.index');
     }
 
-    public function edit(ProjectStatus $projectStatus)
+    public function edit(StoreStatus $storeStatus)
     {
-        abort_if(Gate::denies('project_status_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('store_status_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.projectStatuses.edit', compact('projectStatus'));
+        return view('backoffice.temp.storeStatuses.edit', compact('storeStatus'));
     }
 
-    public function update(UpdateProjectStatusRequest $request, ProjectStatus $projectStatus)
+    public function update(UpdateProjectStatusRequest $request, StoreStatus $storeStatus)
     {
-        $projectStatus->update($request->all());
+        $storeStatus->update($request->all());
 
         return redirect()->route('backoffice.store-statuses.index');
     }
 
-    public function show(ProjectStatus $projectStatus)
+    public function show(StoreStatus $storeStatus)
     {
-        abort_if(Gate::denies('project_status_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('store_status_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.projectStatuses.show', compact('projectStatus'));
+        return view('backoffice.temp.storeStatuses.show', compact('storeStatus'));
     }
 
-    public function destroy(ProjectStatus $projectStatus)
+    public function destroy(StoreStatus $storeStatus)
     {
-        abort_if(Gate::denies('project_status_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('store_status_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projectStatus->delete();
+        $storeStatus->delete();
 
         return back();
     }
 
     public function massDestroy(MassDestroyProjectStatusRequest $request)
     {
-        $projectStatuses = ProjectStatus::find(request('ids'));
+        $storeStatuses = StoreStatus::find(request('ids'));
 
-        foreach ($projectStatuses as $projectStatus) {
-            $projectStatus->delete();
+        foreach ($storeStatuses as $storeStatus) {
+            $storeStatus->delete();
         }
 
         return response(null, Response::HTTP_NO_CONTENT);

@@ -3,19 +3,19 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.projectStatus.title_singular') }}
+        {{ trans('global.create') }} {{ trans('cruds.storeStatus.title_singular') }}
     </div>
 
     <div class="card-body">
         <form method="POST" action="{{ route("backoffice.store-statuses.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="name">{{ trans('cruds.projectStatus.fields.name') }}</label>
+                <label class="required" for="name">{{ trans('cruds.storeStatus.fields.name') }}</label>
                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
                 @if($errors->has('name'))
                     <span class="text-danger">{{ $errors->first('name') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.projectStatus.fields.name_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.storeStatus.fields.name_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

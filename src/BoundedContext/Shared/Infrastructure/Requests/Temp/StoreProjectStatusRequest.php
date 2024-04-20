@@ -10,7 +10,7 @@ class StoreProjectStatusRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('project_status_create');
+        return Gate::allows('store_status_create');
     }
 
     public function rules()

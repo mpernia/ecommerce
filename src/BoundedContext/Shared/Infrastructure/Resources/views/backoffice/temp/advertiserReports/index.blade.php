@@ -5,9 +5,9 @@
 <form action="" method="GET">
     <div class="row">
         <div class="col-xs-6 col-md-4 form-group">
-            <label class="control-label" for="project">{{ trans('cruds.advertiserReport.title_singular') }}</label>
+            <label class="control-label" for="store">{{ trans('cruds.advertiserReport.title_singular') }}</label>
             <select name="project" class="form-control">
-                @foreach($projects as $key => $value)
+                @foreach($stores as $key => $value)
                     <option value="{{ $key }}" @if ($key==$currentProject) selected @endif>{{ $value }}</option>
                 @endforeach
             </select>

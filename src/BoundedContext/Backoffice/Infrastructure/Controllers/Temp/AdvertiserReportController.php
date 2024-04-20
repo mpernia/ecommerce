@@ -4,7 +4,7 @@ namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Project;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -19,8 +19,8 @@ class AdvertiserReportController extends Controller
             ->with('currency')
             ->orderBy('transaction_date', 'desc');
 
-        if ($request->has('project')) {
-            $query->where('project_id', $request->project);
+        if ($request->has('store')) {
+            $query->where('store_id', $request->project);
         }
 
         $transactions = $query->get();
@@ -60,9 +60,9 @@ class AdvertiserReportController extends Controller
                 $entries[$date][$currency]['total'] += $total;
             }
         }
-        $projects = Project::pluck('name', 'id')->prepend('--- ' . trans('cruds.clientReport.reports.allProjects') . ' ---', '');
-        if ($request->has('project')) {
-            $currentProject = $request->get('project');
+        $stores = Store::pluck('name', 'id')->prepend('--- ' . trans('cruds.clientReport.reports.allProjects') . ' ---', '');
+        if ($request->has('store')) {
+            $currentProject = $request->get('store');
         } else {
             $currentProject = '';
         }

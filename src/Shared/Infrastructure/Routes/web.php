@@ -35,8 +35,8 @@ use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\NoteCont
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProductCategoryController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProductController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProductTagController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProjectController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProjectStatusController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\StoreController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\StoreStatusController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\SaleController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\SearchHistoryController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\TransactionController;
@@ -132,14 +132,14 @@ Route::group(['prefix' => 'backoffice', 'as' => 'backoffice.', 'middleware' => [
     Route::delete('advertiser-statuses/destroy', [AdvertiserStatusController::class, 'massDestroy'])->name('advertiser-statuses.massDestroy');
     Route::resource('advertiser-statuses', AdvertiserStatusController::class);
 
-    Route::delete('store-statuses/destroy', [ProjectStatusController::class, 'massDestroy'])->name('store-statuses.massDestroy');
-    Route::resource('store-statuses', ProjectStatusController::class);
+    Route::delete('store-statuses/destroy', [StoreStatusController::class, 'massDestroy'])->name('store-statuses.massDestroy');
+    Route::resource('store-statuses', StoreStatusController::class);
 
     Route::delete('advertisers/destroy', [AdvertiserController::class, 'massDestroy'])->name('advertisers.massDestroy');
     Route::resource('advertisers', AdvertiserController::class);
 
-    Route::delete('projects/destroy', [ProjectController::class, 'massDestroy'])->name('projects.massDestroy');
-    Route::resource('projects', ProjectController::class);
+    Route::delete('stores/destroy', [StoreController::class, 'massDestroy'])->name('stores.massDestroy');
+    Route::resource('stores', StoreController::class);
 
     Route::delete('notes/destroy', [NoteController::class, 'massDestroy'])->name('notes.massDestroy');
     Route::resource('notes', NoteController::class);

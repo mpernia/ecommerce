@@ -25,7 +25,7 @@
                         {{ trans('cruds.transaction.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.transaction.fields.project') }}
+                        {{ trans('cruds.transaction.fields.store') }}
                     </th>
                     <th>
                         {{ trans('cruds.transaction.fields.transaction_type') }}
@@ -105,7 +105,7 @@
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
-{ data: 'project_name', name: 'project.name' },
+{ data: 'store_name', name: 'store.name' },
 { data: 'transaction_type_name', name: 'transaction_type.name' },
 { data: 'income_source_name', name: 'income_source.name' },
 { data: 'amount', name: 'amount' },
@@ -124,7 +124,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 });
 
 </script>

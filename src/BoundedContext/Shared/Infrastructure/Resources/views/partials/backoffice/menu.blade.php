@@ -183,14 +183,14 @@
                                     </a>
                                 </li>
                             @endcan
-                            @can('project_status_access')
+                            @can('store_status_access')
                                 <li class="nav-item">
                                     <a href="{{ route("backoffice.store-statuses.index") }}" class="nav-link {{ request()->is("backoffice/store-statuses") || request()->is("backoffice/store-statuses/*") ? "active" : "" }}">
                                         <i class="fa-fw nav-icon fas fa-server">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.projectStatus.title') }}
+                                            {{ trans('cruds.storeStatus.title') }}
                                         </p>
                                     </a>
                                 </li>
@@ -356,8 +356,8 @@
                 @endcan
 
                 @can('advertiser_management_access')
-                    <li class="nav-item has-treeview {{ request()->is("backoffice/advertisers*") ? "menu-open" : "" }} {{ request()->is("backoffice/projects*") ? "menu-open" : "" }} {{ request()->is("backoffice/notes*") ? "menu-open" : "" }} {{ request()->is("backoffice/documents*") ? "menu-open" : "" }} {{ request()->is("backoffice/transactions*") ? "menu-open" : "" }} {{ request()->is("backoffice/advertiser-reports*") ? "menu-open" : "" }} {{ request()->is("backoffice/campaigns*") ? "menu-open" : "" }} {{ request()->is("backoffice/sales*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("backoffice/advertisers*") ? "active" : "" }} {{ request()->is("backoffice/projects*") ? "active" : "" }} {{ request()->is("backoffice/notes*") ? "active" : "" }} {{ request()->is("backoffice/documents*") ? "active" : "" }} {{ request()->is("backoffice/transactions*") ? "active" : "" }} {{ request()->is("backoffice/advertiser-reports*") ? "active" : "" }} {{ request()->is("backoffice/campaigns*") ? "active" : "" }} {{ request()->is("backoffice/sales*") ? "active" : "" }}" href="#">
+                    <li class="nav-item has-treeview {{ request()->is("backoffice/advertisers*") ? "menu-open" : "" }} {{ request()->is("backoffice/stores*") ? "menu-open" : "" }} {{ request()->is("backoffice/notes*") ? "menu-open" : "" }} {{ request()->is("backoffice/documents*") ? "menu-open" : "" }} {{ request()->is("backoffice/transactions*") ? "menu-open" : "" }} {{ request()->is("backoffice/advertiser-reports*") ? "menu-open" : "" }} {{ request()->is("backoffice/campaigns*") ? "menu-open" : "" }} {{ request()->is("backoffice/sales*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("backoffice/advertisers*") ? "active" : "" }} {{ request()->is("backoffice/stores*") ? "active" : "" }} {{ request()->is("backoffice/notes*") ? "active" : "" }} {{ request()->is("backoffice/documents*") ? "active" : "" }} {{ request()->is("backoffice/transactions*") ? "active" : "" }} {{ request()->is("backoffice/advertiser-reports*") ? "active" : "" }} {{ request()->is("backoffice/campaigns*") ? "active" : "" }} {{ request()->is("backoffice/sales*") ? "active" : "" }}" href="#">
                             <i class="fa-fw nav-icon fas fa-briefcase">
 
                             </i>
@@ -379,14 +379,14 @@
                                     </a>
                                 </li>
                             @endcan
-                            @can('project_access')
+                            @can('store_access')
                                 <li class="nav-item">
-                                    <a href="{{ route("backoffice.projects.index") }}" class="nav-link {{ request()->is("backoffice/projects") || request()->is("backoffice/projects/*") ? "active" : "" }}">
+                                    <a href="{{ route("backoffice.stores.index") }}" class="nav-link {{ request()->is("backoffice/stores") || request()->is("backoffice/stores/*") ? "active" : "" }}">
                                         <i class="fa-fw nav-icon fas fa-store">
 
                                         </i>
                                         <p>
-                                            {{ trans('cruds.project.title') }}
+                                            {{ trans('cruds.store.title') }}
                                         </p>
                                     </a>
                                 </li>

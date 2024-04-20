@@ -10,16 +10,16 @@
         <form method="POST" action="{{ route("backoffice.notes.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="project_id">{{ trans('cruds.note.fields.project') }}</label>
-                <select class="form-control select2 {{ $errors->has('project') ? 'is-invalid' : '' }}" name="project_id" id="project_id" required>
-                    @foreach($projects as $id => $entry)
-                        <option value="{{ $id }}" {{ old('project_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                <label class="required" for="store_id">{{ trans('cruds.note.fields.store') }}</label>
+                <select class="form-control select2 {{ $errors->has('store') ? 'is-invalid' : '' }}" name="store_id" id="store_id" required>
+                    @foreach($stores as $id => $entry)
+                        <option value="{{ $id }}" {{ old('store_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('project'))
-                    <span class="text-danger">{{ $errors->first('project') }}</span>
+                @if($errors->has('store'))
+                    <span class="text-danger">{{ $errors->first('store') }}</span>
                 @endif
-                <span class="help-block">{{ trans('cruds.note.fields.project_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.note.fields.store_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="note_text">{{ trans('cruds.note.fields.note_text') }}</label>

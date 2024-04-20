@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.projectStatus.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.storeStatus.title') }}
     </div>
 
     <div class="card-body">
@@ -17,18 +17,18 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.projectStatus.fields.id') }}
+                            {{ trans('cruds.storeStatus.fields.id') }}
                         </th>
                         <td>
-                            {{ $projectStatus->id }}
+                            {{ $storeStatus->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.projectStatus.fields.name') }}
+                            {{ trans('cruds.storeStatus.fields.name') }}
                         </th>
                         <td>
-                            {{ $projectStatus->name }}
+                            {{ $storeStatus->name }}
                         </td>
                     </tr>
                 </tbody>

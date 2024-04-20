@@ -10,7 +10,7 @@ class MassDestroyProjectStatusRequest extends FormRequest
 {
     public function authorize()
     {
-        abort_if(Gate::denies('project_status_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('store_status_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return true;
     }
@@ -19,7 +19,7 @@ class MassDestroyProjectStatusRequest extends FormRequest
     {
         return [
             'ids'   => 'required|array',
-            'ids.*' => 'exists:project_statuses,id',
+            'ids.*' => 'exists:store_statuses,id',
         ];
     }
 }

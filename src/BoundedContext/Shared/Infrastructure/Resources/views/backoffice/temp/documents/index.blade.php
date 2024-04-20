@@ -25,7 +25,7 @@
                         {{ trans('cruds.document.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.document.fields.project') }}
+                        {{ trans('cruds.document.fields.store') }}
                     </th>
                     <th>
                         {{ trans('cruds.document.fields.document_file') }}
@@ -93,7 +93,7 @@
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
-{ data: 'project_name', name: 'project.name' },
+{ data: 'store_name', name: 'store.name' },
 { data: 'document_file', name: 'document_file', sortable: false, searchable: false },
 { data: 'name', name: 'name' },
 { data: 'description', name: 'description' },
@@ -108,7 +108,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 });
 
 </script>
