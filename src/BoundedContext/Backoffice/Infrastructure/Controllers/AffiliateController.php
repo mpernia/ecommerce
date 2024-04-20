@@ -72,7 +72,7 @@ class AffiliateController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.affiliates.index');
+        return view('backoffice.affiliates.index');
     }
 
     public function create()
@@ -83,7 +83,7 @@ class AffiliateController extends Controller
 
         $statuses = AffiliateStatus::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.affiliates.create', compact('advertisers', 'statuses'));
+        return view('backoffice.affiliates.create', compact('advertisers', 'statuses'));
     }
 
     public function store(StoreAffiliateRequest $request)
@@ -104,7 +104,7 @@ class AffiliateController extends Controller
 
         $affiliate->load('advertisers', 'status', 'created_by');
 
-        return view('backoffice.temp.affiliates.edit', compact('affiliate', 'advertisers', 'statuses'));
+        return view('backoffice.affiliates.edit', compact('affiliate', 'advertisers', 'statuses'));
     }
 
     public function update(UpdateAffiliateRequest $request, Affiliate $affiliate)
@@ -121,7 +121,7 @@ class AffiliateController extends Controller
 
         $affiliate->load('advertisers', 'status', 'created_by');
 
-        return view('backoffice.temp.affiliates.show', compact('affiliate'));
+        return view('backoffice.affiliates.show', compact('affiliate'));
     }
 
     public function destroy(Affiliate $affiliate)

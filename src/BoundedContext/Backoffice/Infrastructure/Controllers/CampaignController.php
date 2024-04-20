@@ -97,7 +97,7 @@ class CampaignController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.campaigns.index');
+        return view('backoffice.campaigns.index');
     }
 
     public function create()
@@ -106,7 +106,7 @@ class CampaignController extends Controller
 
         $products = Product::pluck('name', 'id');
 
-        return view('backoffice.temp.campaigns.create', compact('products'));
+        return view('backoffice.campaigns.create', compact('products'));
     }
 
     public function store(StoreCampaignRequest $request)
@@ -125,7 +125,7 @@ class CampaignController extends Controller
 
         $campaign->load('products', 'created_by');
 
-        return view('backoffice.temp.campaigns.edit', compact('campaign', 'products'));
+        return view('backoffice.campaigns.edit', compact('campaign', 'products'));
     }
 
     public function update(UpdateCampaignRequest $request, Campaign $campaign)
@@ -142,7 +142,7 @@ class CampaignController extends Controller
 
         $campaign->load('products', 'created_by');
 
-        return view('backoffice.temp.campaigns.show', compact('campaign'));
+        return view('backoffice.campaigns.show', compact('campaign'));
     }
 
     public function destroy(Campaign $campaign)

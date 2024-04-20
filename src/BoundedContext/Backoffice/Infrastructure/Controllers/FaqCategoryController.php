@@ -55,14 +55,14 @@ class FaqCategoryController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.faqCategories.index');
+        return view('backoffice.faqCategories.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('faq_category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.faqCategories.create');
+        return view('backoffice.faqCategories.create');
     }
 
     public function store(StoreFaqCategoryRequest $request)
@@ -76,7 +76,7 @@ class FaqCategoryController extends Controller
     {
         abort_if(Gate::denies('faq_category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.faqCategories.edit', compact('faqCategory'));
+        return view('backoffice.faqCategories.edit', compact('faqCategory'));
     }
 
     public function update(UpdateFaqCategoryRequest $request, FaqCategory $faqCategory)
@@ -90,7 +90,7 @@ class FaqCategoryController extends Controller
     {
         abort_if(Gate::denies('faq_category_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.faqCategories.show', compact('faqCategory'));
+        return view('backoffice.faqCategories.show', compact('faqCategory'));
     }
 
     public function destroy(FaqCategory $faqCategory)

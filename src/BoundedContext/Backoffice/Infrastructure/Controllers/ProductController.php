@@ -111,7 +111,7 @@ class ProductController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.products.index');
+        return view('backoffice.products.index');
     }
 
     public function create()
@@ -122,7 +122,7 @@ class ProductController extends Controller
 
         $tags = ProductTag::pluck('name', 'id');
 
-        return view('backoffice.temp.products.create', compact('categories', 'tags'));
+        return view('backoffice.products.create', compact('categories', 'tags'));
     }
 
     public function store(StoreProductRequest $request)
@@ -155,7 +155,7 @@ class ProductController extends Controller
 
         $product->load('categories', 'tags', 'created_by');
 
-        return view('backoffice.temp.products.edit', compact('categories', 'product', 'tags'));
+        return view('backoffice.products.edit', compact('categories', 'product', 'tags'));
     }
 
     public function update(UpdateProductRequest $request, Product $product)
@@ -197,7 +197,7 @@ class ProductController extends Controller
 
         $product->load('categories', 'tags', 'created_by');
 
-        return view('backoffice.temp.products.show', compact('product'));
+        return view('backoffice.products.show', compact('product'));
     }
 
     public function destroy(Product $product)

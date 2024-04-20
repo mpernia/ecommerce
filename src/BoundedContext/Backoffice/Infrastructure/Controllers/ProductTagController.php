@@ -52,14 +52,14 @@ class ProductTagController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.productTags.index');
+        return view('backoffice.productTags.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('product_tag_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.productTags.create');
+        return view('backoffice.productTags.create');
     }
 
     public function store(StoreProductTagRequest $request)
@@ -73,7 +73,7 @@ class ProductTagController extends Controller
     {
         abort_if(Gate::denies('product_tag_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.productTags.edit', compact('productTag'));
+        return view('backoffice.productTags.edit', compact('productTag'));
     }
 
     public function update(UpdateProductTagRequest $request, ProductTag $productTag)
@@ -87,7 +87,7 @@ class ProductTagController extends Controller
     {
         abort_if(Gate::denies('product_tag_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.productTags.show', compact('productTag'));
+        return view('backoffice.productTags.show', compact('productTag'));
     }
 
     public function destroy(ProductTag $productTag)

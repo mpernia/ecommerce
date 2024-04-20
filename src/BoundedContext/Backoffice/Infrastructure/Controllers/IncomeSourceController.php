@@ -55,14 +55,14 @@ class IncomeSourceController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.incomeSources.index');
+        return view('backoffice.incomeSources.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('income_source_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.incomeSources.create');
+        return view('backoffice.incomeSources.create');
     }
 
     public function store(StoreIncomeSourceRequest $request)
@@ -76,7 +76,7 @@ class IncomeSourceController extends Controller
     {
         abort_if(Gate::denies('income_source_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.incomeSources.edit', compact('incomeSource'));
+        return view('backoffice.incomeSources.edit', compact('incomeSource'));
     }
 
     public function update(UpdateIncomeSourceRequest $request, IncomeSource $incomeSource)
@@ -90,7 +90,7 @@ class IncomeSourceController extends Controller
     {
         abort_if(Gate::denies('income_source_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.incomeSources.show', compact('incomeSource'));
+        return view('backoffice.incomeSources.show', compact('incomeSource'));
     }
 
     public function destroy(IncomeSource $incomeSource)

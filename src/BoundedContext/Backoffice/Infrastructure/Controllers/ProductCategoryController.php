@@ -70,14 +70,14 @@ class ProductCategoryController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.productCategories.index');
+        return view('backoffice.productCategories.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('product_category_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.productCategories.create');
+        return view('backoffice.productCategories.create');
     }
 
     public function store(StoreProductCategoryRequest $request)
@@ -99,7 +99,7 @@ class ProductCategoryController extends Controller
     {
         abort_if(Gate::denies('product_category_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.productCategories.edit', compact('productCategory'));
+        return view('backoffice.productCategories.edit', compact('productCategory'));
     }
 
     public function update(UpdateProductCategoryRequest $request, ProductCategory $productCategory)
@@ -124,7 +124,7 @@ class ProductCategoryController extends Controller
     {
         abort_if(Gate::denies('product_category_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.productCategories.show', compact('productCategory'));
+        return view('backoffice.productCategories.show', compact('productCategory'));
     }
 
     public function destroy(ProductCategory $productCategory)

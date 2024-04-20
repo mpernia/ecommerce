@@ -55,14 +55,14 @@ class SearchHistoryController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.searchHistories.index');
+        return view('backoffice.searchHistories.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('search_history_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.temp.searchHistories.create');
+        return view('backoffice.searchHistories.create');
     }
 
     public function store(StoreSearchHistoryRequest $request)
@@ -78,7 +78,7 @@ class SearchHistoryController extends Controller
 
         $searchHistory->load('created_by');
 
-        return view('backoffice.temp.searchHistories.edit', compact('searchHistory'));
+        return view('backoffice.searchHistories.edit', compact('searchHistory'));
     }
 
     public function update(UpdateSearchHistoryRequest $request, SearchHistory $searchHistory)
@@ -94,7 +94,7 @@ class SearchHistoryController extends Controller
 
         $searchHistory->load('created_by');
 
-        return view('backoffice.temp.searchHistories.show', compact('searchHistory'));
+        return view('backoffice.searchHistories.show', compact('searchHistory'));
     }
 
     public function destroy(SearchHistory $searchHistory)

@@ -67,7 +67,7 @@ class DocumentController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.documents.index');
+        return view('backoffice.documents.index');
     }
 
     public function create()
@@ -76,7 +76,7 @@ class DocumentController extends Controller
 
         $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.documents.create', compact('stores'));
+        return view('backoffice.documents.create', compact('stores'));
     }
 
     public function store(StoreDocumentRequest $request)
@@ -102,7 +102,7 @@ class DocumentController extends Controller
 
         $document->load('project', 'created_by');
 
-        return view('backoffice.temp.documents.edit', compact('document', 'stores'));
+        return view('backoffice.documents.edit', compact('document', 'stores'));
     }
 
     public function update(UpdateDocumentRequest $request, Document $document)
@@ -129,7 +129,7 @@ class DocumentController extends Controller
 
         $document->load('project', 'created_by');
 
-        return view('backoffice.temp.documents.show', compact('document'));
+        return view('backoffice.documents.show', compact('document'));
     }
 
     public function destroy(Document $document)

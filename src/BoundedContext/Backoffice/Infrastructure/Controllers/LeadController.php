@@ -60,7 +60,7 @@ class LeadController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.temp.leads.index');
+        return view('backoffice.leads.index');
     }
 
     public function create()
@@ -69,7 +69,7 @@ class LeadController extends Controller
 
         $affiliate_campaigns = AffiliateCampaign::pluck('is_active', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('backoffice.temp.leads.create', compact('affiliate_campaigns'));
+        return view('backoffice.leads.create', compact('affiliate_campaigns'));
     }
 
     public function store(StoreLeadRequest $request)
@@ -87,7 +87,7 @@ class LeadController extends Controller
 
         $lead->load('affiliate_campaign');
 
-        return view('backoffice.temp.leads.edit', compact('affiliate_campaigns', 'lead'));
+        return view('backoffice.leads.edit', compact('affiliate_campaigns', 'lead'));
     }
 
     public function update(UpdateLeadRequest $request, Lead $lead)
@@ -103,7 +103,7 @@ class LeadController extends Controller
 
         $lead->load('affiliate_campaign');
 
-        return view('backoffice.temp.leads.show', compact('lead'));
+        return view('backoffice.leads.show', compact('lead'));
     }
 
     public function destroy(Lead $lead)
