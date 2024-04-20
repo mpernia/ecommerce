@@ -4,9 +4,9 @@ namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
 
 use App\Http\Controllers\Controller;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\StoreStatus;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyProjectStatusRequest;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreProjectStatusRequest;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateProjectStatusRequest;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyStoreStatusRequest;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreStoreStatusRequest;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateStoreStatusRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -62,7 +62,7 @@ class StoreStatusController extends Controller
         return view('backoffice.temp.storeStatuses.create');
     }
 
-    public function store(StoreProjectStatusRequest $request)
+    public function store(StoreStoreStatusRequest $request)
     {
         $storeStatus = StoreStatus::create($request->all());
 
@@ -76,7 +76,7 @@ class StoreStatusController extends Controller
         return view('backoffice.temp.storeStatuses.edit', compact('storeStatus'));
     }
 
-    public function update(UpdateProjectStatusRequest $request, StoreStatus $storeStatus)
+    public function update(UpdateStoreStatusRequest $request, StoreStatus $storeStatus)
     {
         $storeStatus->update($request->all());
 
@@ -99,7 +99,7 @@ class StoreStatusController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroyProjectStatusRequest $request)
+    public function massDestroy(MassDestroyStoreStatusRequest $request)
     {
         $storeStatuses = StoreStatus::find(request('ids'));
 

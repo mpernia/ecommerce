@@ -28,7 +28,7 @@ class AdvertiserReportController extends Controller
         $entries = [];
         foreach ($transactions as $row) {
             if ($row->transaction_date != null) {
-                $date = Carbon::createFromFormat(config('panel.date_format'), $row->transaction_date)->format('Y-m');
+                $date = Carbon::createFromFormat(config('setting.date_format'), $row->transaction_date)->format('Y-m');
                 if (! isset($entries[$date])) {
                     $entries[$date] = [];
                 }

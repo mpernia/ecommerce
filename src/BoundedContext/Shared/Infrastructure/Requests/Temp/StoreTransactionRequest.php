@@ -37,7 +37,7 @@ class StoreTransactionRequest extends FormRequest
             ],
             'transaction_date' => [
                 'required',
-                'date_format:' . config('panel.date_format'),
+                'date_format:' . config('setting.date_format'),
             ],
             'name' => [
                 'string',

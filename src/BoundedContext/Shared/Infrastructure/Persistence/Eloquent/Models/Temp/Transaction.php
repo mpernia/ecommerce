@@ -64,12 +64,12 @@ class Transaction extends Model
 
     public function getTransactionDateAttribute($value)
     {
-        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
+        return $value ? Carbon::parse($value)->format(config('setting.date_format')) : null;
     }
 
     public function setTransactionDateAttribute($value)
     {
-        $this->attributes['transaction_date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
+        $this->attributes['transaction_date'] = $value ? Carbon::createFromFormat(config('setting.date_format'), $value)->format('Y-m-d') : null;
     }
 
     public function created_by()

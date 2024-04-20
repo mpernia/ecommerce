@@ -24,7 +24,7 @@ class UpdateApiUserRequest extends FormRequest
                 'unique:api_users,email,' . request()->route('api_user')->id,
             ],
             'last_login_at' => [
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'date_format:' . config('setting.date_format') . ' ' . config('setting.time_format'),
                 'nullable',
             ],
             'roles.*' => [

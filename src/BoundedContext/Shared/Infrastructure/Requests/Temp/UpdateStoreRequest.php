@@ -26,7 +26,7 @@ class UpdateStoreRequest extends FormRequest
                 'integer',
             ],
             'start_date' => [
-                'date_format:' . config('panel.date_format'),
+                'date_format:' . config('setting.date_format'),
                 'nullable',
             ],
             'budget' => [

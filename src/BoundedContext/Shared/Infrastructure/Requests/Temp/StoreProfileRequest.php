@@ -29,7 +29,7 @@ class StoreProfileRequest extends FormRequest
                 'nullable',
             ],
             'birthday' => [
-                'date_format:' . config('panel.date_format'),
+                'date_format:' . config('setting.date_format'),
                 'nullable',
             ],
             'mobile' => [
