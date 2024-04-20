@@ -66,7 +66,7 @@ class ProductTagController extends Controller
     {
         $productTag = ProductTag::create($request->all());
 
-        return redirect()->route('admin.product-tags.index');
+        return redirect()->route('backoffice.product-tags.index');
     }
 
     public function edit(ProductTag $productTag)
@@ -80,7 +80,7 @@ class ProductTagController extends Controller
     {
         $productTag->update($request->all());
 
-        return redirect()->route('admin.product-tags.index');
+        return redirect()->route('backoffice.product-tags.index');
     }
 
     public function show(ProductTag $productTag)

@@ -85,7 +85,7 @@ class ContentCategoryController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $contentCategory->id]);
         }
 
-        return redirect()->route('admin.content-categories.index');
+        return redirect()->route('backoffice.content-categories.index');
     }
 
     public function edit(ContentCategory $contentCategory)
@@ -103,7 +103,7 @@ class ContentCategoryController extends Controller
     {
         $contentCategory->update($request->all());
 
-        return redirect()->route('admin.content-categories.index');
+        return redirect()->route('backoffice.content-categories.index');
     }
 
     public function show(ContentCategory $contentCategory)

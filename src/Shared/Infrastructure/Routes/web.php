@@ -132,8 +132,8 @@ Route::group(['prefix' => 'backoffice', 'as' => 'backoffice.', 'middleware' => [
     Route::delete('advertiser-statuses/destroy', [AdvertiserStatusController::class, 'massDestroy'])->name('advertiser-statuses.massDestroy');
     Route::resource('advertiser-statuses', AdvertiserStatusController::class);
 
-    Route::delete('project-statuses/destroy', [ProjectStatusController::class, 'massDestroy'])->name('project-statuses.massDestroy');
-    Route::resource('project-statuses', ProjectStatusController::class);
+    Route::delete('store-statuses/destroy', [ProjectStatusController::class, 'massDestroy'])->name('store-statuses.massDestroy');
+    Route::resource('store-statuses', ProjectStatusController::class);
 
     Route::delete('advertisers/destroy', [AdvertiserController::class, 'massDestroy'])->name('advertisers.massDestroy');
     Route::resource('advertisers', AdvertiserController::class);

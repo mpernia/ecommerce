@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("backoffice.project-statuses.update", [$projectStatus->id]) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("backoffice.store-statuses.update", [$projectStatus->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="form-group">

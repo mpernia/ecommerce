@@ -86,7 +86,7 @@ class ProjectController extends Controller
     {
         $project = Project::create($request->all());
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('backoffice.stores.index');
     }
 
     public function edit(Project $project)
@@ -106,7 +106,7 @@ class ProjectController extends Controller
     {
         $project->update($request->all());
 
-        return redirect()->route('admin.projects.index');
+        return redirect()->route('backoffice.stores.index');
     }
 
     public function show(Project $project)

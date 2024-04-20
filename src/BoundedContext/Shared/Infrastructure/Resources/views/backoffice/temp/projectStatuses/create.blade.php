@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("backoffice.project-statuses.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("backoffice.store-statuses.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label class="required" for="name">{{ trans('cruds.projectStatus.fields.name') }}</label>

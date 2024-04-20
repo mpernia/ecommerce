@@ -26,10 +26,10 @@ class ProjectStatusController extends Controller
             $table->addColumn('actions', '&nbsp;');
 
             $table->editColumn('actions', function ($row) {
-                $viewGate      = 'project_status_show';
-                $editGate      = 'project_status_edit';
-                $deleteGate    = 'project_status_delete';
-                $crudRoutePart = 'project-statuses';
+                $viewGate      = 'store_status_show';
+                $editGate      = 'store_status_edit';
+                $deleteGate    = 'store_status_delete';
+                $crudRoutePart = 'store-statuses';
 
                 return view('partials.backoffice.datatablesActions', compact(
                     'viewGate',
@@ -66,7 +66,7 @@ class ProjectStatusController extends Controller
     {
         $projectStatus = ProjectStatus::create($request->all());
 
-        return redirect()->route('admin.project-statuses.index');
+        return redirect()->route('backoffice.store-statuses.index');
     }
 
     public function edit(ProjectStatus $projectStatus)
@@ -80,7 +80,7 @@ class ProjectStatusController extends Controller
     {
         $projectStatus->update($request->all());
 
-        return redirect()->route('admin.project-statuses.index');
+        return redirect()->route('backoffice.store-statuses.index');
     }
 
     public function show(ProjectStatus $projectStatus)

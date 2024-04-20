@@ -78,7 +78,7 @@ class FavoriteProductController extends Controller
     {
         $favoriteProduct = FavoriteProduct::create($request->all());
 
-        return redirect()->route('admin.favorite-products.index');
+        return redirect()->route('backoffice.favorite-products.index');
     }
 
     public function edit(FavoriteProduct $favoriteProduct)
@@ -96,7 +96,7 @@ class FavoriteProductController extends Controller
     {
         $favoriteProduct->update($request->all());
 
-        return redirect()->route('admin.favorite-products.index');
+        return redirect()->route('backoffice.favorite-products.index');
     }
 
     public function show(FavoriteProduct $favoriteProduct)

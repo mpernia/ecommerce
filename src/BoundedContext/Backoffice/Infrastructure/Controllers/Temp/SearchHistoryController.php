@@ -69,7 +69,7 @@ class SearchHistoryController extends Controller
     {
         $searchHistory = SearchHistory::create($request->all());
 
-        return redirect()->route('admin.search-histories.index');
+        return redirect()->route('backoffice.search-histories.index');
     }
 
     public function edit(SearchHistory $searchHistory)
@@ -85,7 +85,7 @@ class SearchHistoryController extends Controller
     {
         $searchHistory->update($request->all());
 
-        return redirect()->route('admin.search-histories.index');
+        return redirect()->route('backoffice.search-histories.index');
     }
 
     public function show(SearchHistory $searchHistory)

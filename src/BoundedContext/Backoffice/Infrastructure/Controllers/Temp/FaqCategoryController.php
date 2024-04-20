@@ -69,7 +69,7 @@ class FaqCategoryController extends Controller
     {
         $faqCategory = FaqCategory::create($request->all());
 
-        return redirect()->route('admin.faq-categories.index');
+        return redirect()->route('backoffice.faq-categories.index');
     }
 
     public function edit(FaqCategory $faqCategory)
@@ -83,7 +83,7 @@ class FaqCategoryController extends Controller
     {
         $faqCategory->update($request->all());
 
-        return redirect()->route('admin.faq-categories.index');
+        return redirect()->route('backoffice.faq-categories.index');
     }
 
     public function show(FaqCategory $faqCategory)

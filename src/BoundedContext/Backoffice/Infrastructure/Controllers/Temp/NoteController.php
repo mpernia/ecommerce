@@ -73,7 +73,7 @@ class NoteController extends Controller
     {
         $note = Note::create($request->all());
 
-        return redirect()->route('admin.notes.index');
+        return redirect()->route('backoffice.notes.index');
     }
 
     public function edit(Note $note)
@@ -91,7 +91,7 @@ class NoteController extends Controller
     {
         $note->update($request->all());
 
-        return redirect()->route('admin.notes.index');
+        return redirect()->route('backoffice.notes.index');
     }
 
     public function show(Note $note)

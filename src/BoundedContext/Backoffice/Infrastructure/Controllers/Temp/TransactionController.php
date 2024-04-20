@@ -100,7 +100,7 @@ class TransactionController extends Controller
     {
         $transaction = Transaction::create($request->all());
 
-        return redirect()->route('admin.transactions.index');
+        return redirect()->route('backoffice.transactions.index');
     }
 
     public function edit(Transaction $transaction)
@@ -124,7 +124,7 @@ class TransactionController extends Controller
     {
         $transaction->update($request->all());
 
-        return redirect()->route('admin.transactions.index');
+        return redirect()->route('backoffice.transactions.index');
     }
 
     public function show(Transaction $transaction)

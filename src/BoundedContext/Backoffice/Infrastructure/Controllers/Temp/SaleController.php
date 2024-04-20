@@ -83,7 +83,7 @@ class SaleController extends Controller
     {
         $sale = Sale::create($request->all());
 
-        return redirect()->route('admin.sales.index');
+        return redirect()->route('backoffice.sales.index');
     }
 
     public function edit(Sale $sale)
@@ -105,7 +105,7 @@ class SaleController extends Controller
     {
         $sale->update($request->all());
 
-        return redirect()->route('admin.sales.index');
+        return redirect()->route('backoffice.sales.index');
     }
 
     public function show(Sale $sale)

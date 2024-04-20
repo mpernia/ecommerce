@@ -66,7 +66,7 @@ class AffiliateStatusController extends Controller
     {
         $affiliateStatus = AffiliateStatus::create($request->all());
 
-        return redirect()->route('admin.affiliate-statuses.index');
+        return redirect()->route('backoffice.affiliate-statuses.index');
     }
 
     public function edit(AffiliateStatus $affiliateStatus)
@@ -80,7 +80,7 @@ class AffiliateStatusController extends Controller
     {
         $affiliateStatus->update($request->all());
 
-        return redirect()->route('admin.affiliate-statuses.index');
+        return redirect()->route('backoffice.affiliate-statuses.index');
     }
 
     public function show(AffiliateStatus $affiliateStatus)

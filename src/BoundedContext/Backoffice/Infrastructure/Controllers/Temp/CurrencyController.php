@@ -72,7 +72,7 @@ class CurrencyController extends Controller
     {
         $currency = Currency::create($request->all());
 
-        return redirect()->route('admin.currencies.index');
+        return redirect()->route('backoffice.currencies.index');
     }
 
     public function edit(Currency $currency)
@@ -86,7 +86,7 @@ class CurrencyController extends Controller
     {
         $currency->update($request->all());
 
-        return redirect()->route('admin.currencies.index');
+        return redirect()->route('backoffice.currencies.index');
     }
 
     public function show(Currency $currency)

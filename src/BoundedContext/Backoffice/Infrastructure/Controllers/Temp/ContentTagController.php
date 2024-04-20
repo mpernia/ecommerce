@@ -69,7 +69,7 @@ class ContentTagController extends Controller
     {
         $contentTag = ContentTag::create($request->all());
 
-        return redirect()->route('admin.content-tags.index');
+        return redirect()->route('backoffice.content-tags.index');
     }
 
     public function edit(ContentTag $contentTag)
@@ -83,7 +83,7 @@ class ContentTagController extends Controller
     {
         $contentTag->update($request->all());
 
-        return redirect()->route('admin.content-tags.index');
+        return redirect()->route('backoffice.content-tags.index');
     }
 
     public function show(ContentTag $contentTag)

@@ -124,8 +124,8 @@
 
 
                 @can('management_setting_access')
-                    <li class="nav-item has-treeview {{ request()->is("backoffice/currencies*") ? "menu-open" : "" }} {{ request()->is("backoffice/transaction-types*") ? "menu-open" : "" }} {{ request()->is("backoffice/income-sources*") ? "menu-open" : "" }} {{ request()->is("backoffice/advertiser-statuses*") ? "menu-open" : "" }} {{ request()->is("backoffice/project-statuses*") ? "menu-open" : "" }} {{ request()->is("backoffice/affiliate-statuses*") ? "menu-open" : "" }}">
-                        <a class="nav-link nav-dropdown-toggle {{ request()->is("backoffice/currencies*") ? "active" : "" }} {{ request()->is("backoffice/transaction-types*") ? "active" : "" }} {{ request()->is("backoffice/income-sources*") ? "active" : "" }} {{ request()->is("backoffice/advertiser-statuses*") ? "active" : "" }} {{ request()->is("backoffice/project-statuses*") ? "active" : "" }} {{ request()->is("backoffice/affiliate-statuses*") ? "active" : "" }}" href="#">
+                    <li class="nav-item has-treeview {{ request()->is("backoffice/currencies*") ? "menu-open" : "" }} {{ request()->is("backoffice/transaction-types*") ? "menu-open" : "" }} {{ request()->is("backoffice/income-sources*") ? "menu-open" : "" }} {{ request()->is("backoffice/advertiser-statuses*") ? "menu-open" : "" }} {{ request()->is("backoffice/store-statuses*") ? "menu-open" : "" }} {{ request()->is("backoffice/affiliate-statuses*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle {{ request()->is("backoffice/currencies*") ? "active" : "" }} {{ request()->is("backoffice/transaction-types*") ? "active" : "" }} {{ request()->is("backoffice/income-sources*") ? "active" : "" }} {{ request()->is("backoffice/advertiser-statuses*") ? "active" : "" }} {{ request()->is("backoffice/store-statuses*") ? "active" : "" }} {{ request()->is("backoffice/affiliate-statuses*") ? "active" : "" }}" href="#">
                             <i class="fa-fw nav-icon fas fa-cogs">
 
                             </i>
@@ -185,7 +185,7 @@
                             @endcan
                             @can('project_status_access')
                                 <li class="nav-item">
-                                    <a href="{{ route("backoffice.project-statuses.index") }}" class="nav-link {{ request()->is("backoffice/project-statuses") || request()->is("backoffice/project-statuses/*") ? "active" : "" }}">
+                                    <a href="{{ route("backoffice.store-statuses.index") }}" class="nav-link {{ request()->is("backoffice/store-statuses") || request()->is("backoffice/store-statuses/*") ? "active" : "" }}">
                                         <i class="fa-fw nav-icon fas fa-server">
 
                                         </i>

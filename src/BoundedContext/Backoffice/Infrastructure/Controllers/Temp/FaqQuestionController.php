@@ -79,7 +79,7 @@ class FaqQuestionController extends Controller
     {
         $faqQuestion = FaqQuestion::create($request->all());
 
-        return redirect()->route('admin.faq-questions.index');
+        return redirect()->route('backoffice.faq-questions.index');
     }
 
     public function edit(FaqQuestion $faqQuestion)
@@ -97,7 +97,7 @@ class FaqQuestionController extends Controller
     {
         $faqQuestion->update($request->all());
 
-        return redirect()->route('admin.faq-questions.index');
+        return redirect()->route('backoffice.faq-questions.index');
     }
 
     public function show(FaqQuestion $faqQuestion)

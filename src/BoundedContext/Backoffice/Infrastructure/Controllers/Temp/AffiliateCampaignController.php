@@ -79,7 +79,7 @@ class AffiliateCampaignController extends Controller
     {
         $affiliateCampaign = AffiliateCampaign::create($request->all());
 
-        return redirect()->route('admin.affiliate-campaigns.index');
+        return redirect()->route('backoffice.affiliate-campaigns.index');
     }
 
     public function edit(AffiliateCampaign $affiliateCampaign)
@@ -99,7 +99,7 @@ class AffiliateCampaignController extends Controller
     {
         $affiliateCampaign->update($request->all());
 
-        return redirect()->route('admin.affiliate-campaigns.index');
+        return redirect()->route('backoffice.affiliate-campaigns.index');
     }
 
     public function show(AffiliateCampaign $affiliateCampaign)

@@ -76,7 +76,7 @@ class LeadController extends Controller
     {
         $lead = Lead::create($request->all());
 
-        return redirect()->route('admin.leads.index');
+        return redirect()->route('backoffice.leads.index');
     }
 
     public function edit(Lead $lead)
@@ -94,7 +94,7 @@ class LeadController extends Controller
     {
         $lead->update($request->all());
 
-        return redirect()->route('admin.leads.index');
+        return redirect()->route('backoffice.leads.index');
     }
 
     public function show(Lead $lead)

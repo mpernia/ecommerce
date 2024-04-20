@@ -3,7 +3,7 @@
 @can('project_status_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('backoffice.project-statuses.create') }}">
+            <a class="btn btn-success" href="{{ route('backoffice.store-statuses.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.projectStatus.title_singular') }}
             </a>
         </div>
@@ -48,7 +48,7 @@
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('backoffice.project-statuses.massDestroy') }}",
+    url: "{{ route('backoffice.store-statuses.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
@@ -80,7 +80,7 @@
     serverSide: true,
     retrieve: true,
     aaSorting: [],
-    ajax: "{{ route('backoffice.project-statuses.index') }}",
+    ajax: "{{ route('backoffice.store-statuses.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
@@ -96,7 +96,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 });
 
 </script>

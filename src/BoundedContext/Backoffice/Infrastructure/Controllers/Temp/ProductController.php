@@ -142,7 +142,7 @@ class ProductController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $product->id]);
         }
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('backoffice.products.index');
     }
 
     public function edit(Product $product)
@@ -188,7 +188,7 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('backoffice.products.index');
     }
 
     public function show(Product $product)

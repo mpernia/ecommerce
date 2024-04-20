@@ -66,7 +66,7 @@ class TransactionTypeController extends Controller
     {
         $transactionType = TransactionType::create($request->all());
 
-        return redirect()->route('admin.transaction-types.index');
+        return redirect()->route('backoffice.transaction-types.index');
     }
 
     public function edit(TransactionType $transactionType)
@@ -80,7 +80,7 @@ class TransactionTypeController extends Controller
     {
         $transactionType->update($request->all());
 
-        return redirect()->route('admin.transaction-types.index');
+        return redirect()->route('backoffice.transaction-types.index');
     }
 
     public function show(TransactionType $transactionType)

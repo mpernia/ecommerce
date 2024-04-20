@@ -69,7 +69,7 @@ class IncomeSourceController extends Controller
     {
         $incomeSource = IncomeSource::create($request->all());
 
-        return redirect()->route('admin.income-sources.index');
+        return redirect()->route('backoffice.income-sources.index');
     }
 
     public function edit(IncomeSource $incomeSource)
@@ -83,7 +83,7 @@ class IncomeSourceController extends Controller
     {
         $incomeSource->update($request->all());
 
-        return redirect()->route('admin.income-sources.index');
+        return redirect()->route('backoffice.income-sources.index');
     }
 
     public function show(IncomeSource $incomeSource)

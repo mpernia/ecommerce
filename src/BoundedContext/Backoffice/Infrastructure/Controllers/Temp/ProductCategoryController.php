@@ -92,7 +92,7 @@ class ProductCategoryController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $productCategory->id]);
         }
 
-        return redirect()->route('admin.product-categories.index');
+        return redirect()->route('backoffice.product-categories.index');
     }
 
     public function edit(ProductCategory $productCategory)
@@ -117,7 +117,7 @@ class ProductCategoryController extends Controller
             $productCategory->photo->delete();
         }
 
-        return redirect()->route('admin.product-categories.index');
+        return redirect()->route('backoffice.product-categories.index');
     }
 
     public function show(ProductCategory $productCategory)

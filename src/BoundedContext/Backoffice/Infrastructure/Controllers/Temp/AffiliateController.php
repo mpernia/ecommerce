@@ -91,7 +91,7 @@ class AffiliateController extends Controller
         $affiliate = Affiliate::create($request->all());
         $affiliate->clients()->sync($request->input('advertisers', []));
 
-        return redirect()->route('admin.affiliates.index');
+        return redirect()->route('backoffice.affiliates.index');
     }
 
     public function edit(Affiliate $affiliate)
@@ -112,7 +112,7 @@ class AffiliateController extends Controller
         $affiliate->update($request->all());
         $affiliate->clients()->sync($request->input('advertisers', []));
 
-        return redirect()->route('admin.affiliates.index');
+        return redirect()->route('backoffice.affiliates.index');
     }
 
     public function show(Affiliate $affiliate)

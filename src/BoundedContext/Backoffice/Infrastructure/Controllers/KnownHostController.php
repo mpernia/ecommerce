@@ -69,7 +69,7 @@ class KnownHostController extends Controller
     {
         $knownHost = KnownHost::create($request->all());
 
-        return redirect()->route('admin.known-hosts.index');
+        return redirect()->route('backoffice.known-hosts.index');
     }
 
     public function edit(KnownHost $knownHost)
@@ -83,7 +83,7 @@ class KnownHostController extends Controller
     {
         $knownHost->update($request->all());
 
-        return redirect()->route('admin.known-hosts.index');
+        return redirect()->route('backoffice.known-hosts.index');
     }
 
     public function show(KnownHost $knownHost)

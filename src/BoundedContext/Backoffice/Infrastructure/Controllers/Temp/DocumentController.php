@@ -91,7 +91,7 @@ class DocumentController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $document->id]);
         }
 
-        return redirect()->route('admin.documents.index');
+        return redirect()->route('backoffice.documents.index');
     }
 
     public function edit(Document $document)
@@ -120,7 +120,7 @@ class DocumentController extends Controller
             $document->document_file->delete();
         }
 
-        return redirect()->route('admin.documents.index');
+        return redirect()->route('backoffice.documents.index');
     }
 
     public function show(Document $document)

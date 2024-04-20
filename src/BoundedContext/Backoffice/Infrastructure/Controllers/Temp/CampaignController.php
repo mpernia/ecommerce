@@ -114,7 +114,7 @@ class CampaignController extends Controller
         $campaign = Campaign::create($request->all());
         $campaign->products()->sync($request->input('products', []));
 
-        return redirect()->route('admin.campaigns.index');
+        return redirect()->route('backoffice.campaigns.index');
     }
 
     public function edit(Campaign $campaign)
@@ -133,7 +133,7 @@ class CampaignController extends Controller
         $campaign->update($request->all());
         $campaign->products()->sync($request->input('products', []));
 
-        return redirect()->route('admin.campaigns.index');
+        return redirect()->route('backoffice.campaigns.index');
     }
 
     public function show(Campaign $campaign)
