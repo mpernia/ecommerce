@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp;
+namespace Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers;
 
 use App\Http\Controllers\Controller;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Document;
