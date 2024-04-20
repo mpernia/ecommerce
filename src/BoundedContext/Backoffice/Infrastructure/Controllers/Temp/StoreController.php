@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Advertiser;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\Store;
 use Ecommerce\BoundedContext\Shared\Infrastructure\Persistence\Eloquent\Models\Temp\StoreStatus;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyProjectRequest;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreProjectRequest;
-use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateProjectRequest;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\MassDestroyStoreRequest;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\StoreStoreRequest;
+use Ecommerce\BoundedContext\Shared\Infrastructure\Requests\Temp\UpdateStoreRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
@@ -82,7 +82,7 @@ class StoreController extends Controller
         return view('backoffice.temp.stores.create', compact('clients', 'statuses'));
     }
 
-    public function store(StoreProjectRequest $request)
+    public function store(StoreStoreRequest $request)
     {
         $store = Store::create($request->all());
 
@@ -102,7 +102,7 @@ class StoreController extends Controller
         return view('backoffice.temp.stores.edit', compact('clients', 'store', 'statuses'));
     }
 
-    public function update(UpdateProjectRequest $request, Store $store)
+    public function update(UpdateStoreRequest $request, Store $store)
     {
         $store->update($request->all());
 
@@ -127,7 +127,7 @@ class StoreController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroyProjectRequest $request)
+    public function massDestroy(MassDestroyStoreRequest $request)
     {
         $stores = Store::find(request('ids'));
 

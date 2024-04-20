@@ -7,7 +7,7 @@ use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class UpdateProjectRequest extends FormRequest
+class UpdateStoreRequest extends FormRequest
 {
     public function authorize()
     {

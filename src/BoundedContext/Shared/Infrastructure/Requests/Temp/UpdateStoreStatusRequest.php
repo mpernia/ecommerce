@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class StoreProjectStatusRequest extends FormRequest
+class UpdateStoreStatusRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('store_status_create');
+        return Gate::allows('store_status_edit');
     }
 
     public function rules()

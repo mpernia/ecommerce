@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class UpdateProjectStatusRequest extends FormRequest
+class StoreStoreRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('store_status_edit');
+        return Gate::allows('store_create');
     }
 
     public function rules()
@@ -19,6 +19,17 @@ class UpdateProjectStatusRequest extends FormRequest
             'name' => [
                 'string',
                 'required',
+            ],
+            'advertiser_id' => [
+                'required',
+                'integer',
+            ],
+            'start_date' => [
+                'date_format:' . config('panel.date_format'),
+                'nullable',
+            ],
+            'budget' => [
+                'numeric',
             ],
         ];
     }
