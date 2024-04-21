@@ -2,8 +2,8 @@
 
 return [
     'userManagement' => [
-        'title'          => 'User management',
-        'title_singular' => 'User management',
+        'title'          => 'Users',
+        'title_singular' => 'Users',
     ],
     'permission' => [
         'title'          => 'Permissions',
@@ -171,11 +171,9 @@ return [
             'updated_at_helper'   => ' ',
         ],
     ],
-
-
     'faqManagement' => [
-        'title'          => 'FAQ Management',
-        'title_singular' => 'FAQ Management',
+        'title'          => 'FAQ',
+        'title_singular' => 'FAQ',
     ],
     'faqCategory' => [
         'title'          => 'Categories',
@@ -218,8 +216,8 @@ return [
         ],
     ],
     'productManagement' => [
-        'title'          => 'Product Management',
-        'title_singular' => 'Product Management',
+        'title'          => 'Products',
+        'title_singular' => 'Product',
     ],
     'productCategory' => [
         'title'          => 'Categories',
@@ -298,8 +296,8 @@ return [
         ],
     ],
     'contentManagement' => [
-        'title'          => 'Content management',
-        'title_singular' => 'Content management',
+        'title'          => 'Contents',
+        'title_singular' => 'Content',
     ],
     'contentCategory' => [
         'title'          => 'Categories',
@@ -460,8 +458,8 @@ return [
         ],
     ],
     'advertiserManagement' => [
-        'title'          => 'Advertiser management',
-        'title_singular' => 'Advertiser management',
+        'title'          => 'Advertisers',
+        'title_singular' => 'Advertiser',
     ],
     'advertiser' => [
         'title'          => 'advertisers',
@@ -673,8 +671,8 @@ return [
     ],
 
     'affiliateManagement' => [
-        'title'          => 'Affiliate Management',
-        'title_singular' => 'Affiliate Management',
+        'title'          => 'Affiliates',
+        'title_singular' => 'Affiliate',
     ],
     'campaign' => [
         'title'          => 'Campaign',
@@ -863,8 +861,8 @@ return [
         ],
     ],
     'managementSetting' => [
-        'title'          => 'Management Settings',
-        'title_singular' => 'Management Setting',
+        'title'          => 'Settings',
+        'title_singular' => 'Setting',
     ],
     'affiliateCampaign' => [
         'title'          => 'Affiliate Campaign',

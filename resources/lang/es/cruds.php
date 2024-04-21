@@ -2,8 +2,8 @@
 
 return [
     'userManagement' => [
-        'title'          => 'Gestionar usuarios',
-        'title_singular' => 'Gestionar usuarios',
+        'title'          => 'Usuarios',
+        'title_singular' => 'Usuario',
     ],
     'permission' => [
         'title'          => 'Permisos',
@@ -172,8 +172,8 @@ return [
         ],
     ],
     'faqManagement' => [
-        'title'          => 'FAQ Management',
-        'title_singular' => 'FAQ Management',
+        'title'          => 'FAQ',
+        'title_singular' => 'FAQ',
     ],
     'faqCategory' => [
         'title'          => 'Categories',
@@ -216,8 +216,8 @@ return [
         ],
     ],
     'productManagement' => [
-        'title'          => 'Product Management',
-        'title_singular' => 'Product Management',
+        'title'          => 'Products',
+        'title_singular' => 'Product',
     ],
     'productCategory' => [
         'title'          => 'Categories',
@@ -296,8 +296,8 @@ return [
         ],
     ],
     'contentManagement' => [
-        'title'          => 'Content management',
-        'title_singular' => 'Content management',
+        'title'          => 'Contenido',
+        'title_singular' => 'Content',
     ],
     'contentCategory' => [
         'title'          => 'Categories',
@@ -458,8 +458,8 @@ return [
         ],
     ],
     'advertiserManagement' => [
-        'title'          => 'Gestión de Proyectos',
-        'title_singular' => 'Gestión de Proyectos',
+        'title'          => 'Anunciantes',
+        'title_singular' => 'Anunciante',
     ],
     'advertiser' => [
         'title'          => 'Anunciantes',
@@ -670,12 +670,12 @@ return [
         ],
     ],
     'affiliateManagement' => [
-        'title'          => 'Affiliate Management',
-        'title_singular' => 'Affiliate Management',
+        'title'          => 'Affiliados',
+        'title_singular' => 'Affiliado',
     ],
     'campaign' => [
-        'title'          => 'Campaign',
-        'title_singular' => 'Campaign',
+        'title'          => 'Campañas',
+        'title_singular' => 'Campaña',
         'fields'         => [
             'id'                          => 'ID',
             'id_helper'                   => ' ',
@@ -860,8 +860,8 @@ return [
         ],
     ],
     'managementSetting' => [
-        'title'          => 'Management Settings',
-        'title_singular' => 'Management Setting',
+        'title'          => 'Ajustes',
+        'title_singular' => 'Ajuste',
     ],
     'affiliateCampaign' => [
         'title'          => 'Affiliate Campaign',
