@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.api-users.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('backoffice.api-users.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label class="required" for="name">{{ trans('cruds.apiUser.fields.name') }}</label>

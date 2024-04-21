@@ -7,7 +7,7 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.known-hosts.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('backoffice.known-hosts.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label class="required" for="ip_address">{{ trans('cruds.knownHost.fields.ip_address') }}</label>
