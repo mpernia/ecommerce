@@ -86,7 +86,7 @@
             ajax: "{{ route('backoffice.notes.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'store_name', name: 'store.name' },
                 { data: 'note_text', name: 'note_text' },
                 { data: 'actions', name: '{{ trans('global.actions') }}' }

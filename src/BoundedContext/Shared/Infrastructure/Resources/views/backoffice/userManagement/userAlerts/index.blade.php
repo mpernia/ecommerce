@@ -90,7 +90,7 @@
                 ajax: "{{ route('backoffice.user-alerts.index') }}",
                 columns: [
                     {data: 'placeholder', name: 'placeholder'},
-                    {data: 'id', name: 'id'},
+                    {data: 'id', name: 'id', visible: false},
                     {data: 'alert_text', name: 'alert_text'},
                     {data: 'alert_link', name: 'alert_link'},
                     {data: 'user', name: 'users.name'},

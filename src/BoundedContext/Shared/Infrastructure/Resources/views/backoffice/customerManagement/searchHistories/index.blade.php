@@ -90,7 +90,7 @@
             ajax: "{{ route('backoffice.search-histories.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'is_active', name: 'is_active' },
                 { data: 'counter', name: 'counter' },
                 { data: 'last_date_at', name: 'last_date_at' },

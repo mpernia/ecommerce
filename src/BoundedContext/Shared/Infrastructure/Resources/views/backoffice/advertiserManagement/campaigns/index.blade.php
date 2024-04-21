@@ -122,7 +122,7 @@
             ajax: "{{ route('backoffice.campaigns.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'is_active', name: 'is_active' },
                 { data: 'url', name: 'url' },

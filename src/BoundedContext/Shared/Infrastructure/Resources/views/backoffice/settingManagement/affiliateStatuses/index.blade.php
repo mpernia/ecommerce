@@ -83,7 +83,7 @@
             ajax: "{{ route('backoffice.affiliate-statuses.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'actions', name: '{{ trans('global.actions') }}' }
             ],

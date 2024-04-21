@@ -92,7 +92,7 @@
             ajax: "{{ route('backoffice.faq-questions.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'category_category', name: 'category.category' },
                 { data: 'question', name: 'question' },
                 { data: 'answer', name: 'answer' },

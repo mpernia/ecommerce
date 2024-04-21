@@ -89,7 +89,7 @@
             ajax: "{{ route('backoffice.sales.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'product_name', name: 'product.name' },
                 { data: 'advertiser_company', name: 'advertiser.company' },
                 { data: 'tracking_tracking', name: 'tracking.tracking' },

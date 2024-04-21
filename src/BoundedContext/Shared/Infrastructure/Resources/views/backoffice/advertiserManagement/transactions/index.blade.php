@@ -104,7 +104,7 @@
             ajax: "{{ route('backoffice.transactions.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'store_name', name: 'store.name' },
                 { data: 'transaction_type_name', name: 'transaction_type.name' },
                 { data: 'income_source_name', name: 'income_source.name' },

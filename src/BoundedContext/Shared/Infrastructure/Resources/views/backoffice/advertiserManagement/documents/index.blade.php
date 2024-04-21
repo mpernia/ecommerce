@@ -92,7 +92,7 @@
             ajax: "{{ route('backoffice.documents.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'store_name', name: 'store.name' },
                 { data: 'document_file', name: 'document_file', sortable: false, searchable: false },
                 { data: 'name', name: 'name' },

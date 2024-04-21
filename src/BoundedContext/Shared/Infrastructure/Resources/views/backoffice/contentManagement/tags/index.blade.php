@@ -86,7 +86,7 @@
             ajax: "{{ route('backoffice.content-tags.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'slug', name: 'slug' },
                 { data: 'actions', name: '{{ trans('global.actions') }}' }

@@ -84,7 +84,7 @@
                 ajax: "{{ route('backoffice.permissions.index') }}",
                 columns: [
                     {data: 'placeholder', name: 'placeholder'},
-                    {data: 'id', name: 'id'},
+                    {data: 'id', name: 'id', visible: false},
                     {data: 'title', name: 'title'},
                     {data: 'key', name: 'key'},
                     {data: 'actions', name: '{{ trans('global.actions') }}'}

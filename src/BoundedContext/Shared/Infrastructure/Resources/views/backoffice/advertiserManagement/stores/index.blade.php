@@ -98,7 +98,7 @@
             ajax: "{{ route('backoffice.stores.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'advertiser_first_name', name: 'advertiser.first_name' },
                 { data: 'description', name: 'description' },

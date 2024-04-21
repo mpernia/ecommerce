@@ -92,7 +92,7 @@
             ajax: "{{ route('backoffice.content-categories.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'slug', name: 'slug' },
                 { data: 'icon', name: 'icon' },

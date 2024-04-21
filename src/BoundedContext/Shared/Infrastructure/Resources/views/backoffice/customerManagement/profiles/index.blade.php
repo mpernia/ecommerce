@@ -98,7 +98,7 @@
             ajax: "{{ route('backoffice.profiles.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'first_surname', name: 'first_surname' },
                 { data: 'second_surname', name: 'second_surname' },

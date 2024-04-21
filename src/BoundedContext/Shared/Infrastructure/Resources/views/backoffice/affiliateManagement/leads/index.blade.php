@@ -89,7 +89,7 @@
             ajax: "{{ route('backoffice.leads.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'affiliate_campaign_is_active', name: 'affiliate_campaign.is_active' },
                 { data: 'tracking', name: 'tracking' },
                 { data: 'mobile', name: 'mobile' },

@@ -84,7 +84,7 @@
             ajax: "{{ route('backoffice.known-hosts.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'ip_address', name: 'ip_address' },
                 { data: 'domain', name: 'domain' },
                 { data: 'actions', name: '{{ trans('global.actions') }}' }

@@ -89,7 +89,7 @@
             ajax: "{{ route('backoffice.currencies.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'code', name: 'code' },
                 { data: 'main_currency', name: 'main_currency' },

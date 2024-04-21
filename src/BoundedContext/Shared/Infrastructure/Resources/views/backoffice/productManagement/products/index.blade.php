@@ -110,7 +110,7 @@
             ajax: "{{ route('backoffice.products.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'price', name: 'price' },
                 { data: 'reference', name: 'reference' },

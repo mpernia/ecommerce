@@ -101,7 +101,7 @@
                 ajax: "{{ route('backoffice.users.index') }}",
                 columns: [
                     {data: 'placeholder', name: 'placeholder'},
-                    {data: 'id', name: 'id'},
+                    {data: 'id', name: 'id', visible: false},
                     {data: 'name', name: 'name'},
                     {data: 'email', name: 'email'},
                     {data: 'email_verified_at', name: 'email_verified_at'},

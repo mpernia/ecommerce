@@ -87,7 +87,7 @@
             ajax: "{{ route('backoffice.income-sources.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'fee_percent', name: 'fee_percent' },
                 { data: 'actions', name: '{{ trans('global.actions') }}' }

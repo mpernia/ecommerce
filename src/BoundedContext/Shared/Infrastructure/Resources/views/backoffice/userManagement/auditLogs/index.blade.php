@@ -58,7 +58,7 @@
             ajax: "{{ route('backoffice.audit-logs.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'description', name: 'description' },
                 { data: 'subject_id', name: 'subject_id' },
                 { data: 'subject_type', name: 'subject_type' },

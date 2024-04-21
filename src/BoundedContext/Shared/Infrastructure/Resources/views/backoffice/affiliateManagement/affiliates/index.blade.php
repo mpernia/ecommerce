@@ -98,7 +98,7 @@
             ajax: "{{ route('backoffice.affiliates.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'description', name: 'description' },
                 { data: 'start_date', name: 'start_date' },

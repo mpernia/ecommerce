@@ -89,7 +89,7 @@
             ajax: "{{ route('backoffice.affiliate-campaigns.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'is_active', name: 'is_active' },
                 { data: 'affiliate_name', name: 'affiliate.name' },
                 { data: 'campaign_url', name: 'campaign.url' },

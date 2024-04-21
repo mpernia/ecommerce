@@ -89,7 +89,7 @@
             ajax: "{{ route('backoffice.product-categories.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'name', name: 'name' },
                 { data: 'description', name: 'description' },
                 { data: 'photo', name: 'photo', sortable: false, searchable: false },

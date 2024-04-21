@@ -92,7 +92,7 @@
             ajax: "{{ route('backoffice.favorite-products.index') }}",
             columns: [
                 { data: 'placeholder', name: 'placeholder' },
-                { data: 'id', name: 'id' },
+                { data: 'id', name: 'id', visible: false },
                 { data: 'is_active', name: 'is_active' },
                 { data: 'price', name: 'price' },
                 { data: 'price_target', name: 'price_target' },
