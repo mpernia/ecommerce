@@ -1,14 +1,6 @@
 @extends('layouts.backoffice')
 @section('content')
-@can('profile_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('backoffice.profiles.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.profile.title_singular') }}
-            </a>
-        </div>
-    </div>
-@endcan
+
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.profile.title_singular') }} {{ trans('global.list') }}
@@ -18,7 +10,7 @@
         <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Profile">
             <thead>
                 <tr>
-                    <th width="10">
+                    <th class="td-checkbox">
 
                     </th>
                     <th>
@@ -42,7 +34,7 @@
                     <th>
                         {{ trans('cruds.profile.fields.avatar') }}
                     </th>
-                    <th>
+                    <th class="td-action">
                         &nbsp;
                     </th>
                 </tr>
@@ -58,66 +50,71 @@
 @parent
 <script>
     $(function () {
-  let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('profile_delete')
-  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
-  let deleteButton = {
-    text: deleteButtonTrans,
-    url: "{{ route('backoffice.profiles.massDestroy') }}",
-    className: 'btn-danger',
-    action: function (e, dt, node, config) {
-      var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
-          return entry.id
-      });
-
-      if (ids.length === 0) {
-        alert('{{ trans('global.datatables.zero_selected') }}')
-
-        return
-      }
-
-      if (confirm('{{ trans('global.areYouSure') }}')) {
-        $.ajax({
-          headers: {'x-csrf-token': _token},
-          method: 'POST',
-          url: config.url,
-          data: { ids: ids, _method: 'DELETE' }})
-          .done(function () { location.reload() })
-      }
-    }
-  }
-  dtButtons.push(deleteButton)
-@endcan
-
-  let dtOverrideGlobals = {
-    buttons: dtButtons,
-    processing: true,
-    serverSide: true,
-    retrieve: true,
-    aaSorting: [],
-    ajax: "{{ route('backoffice.profiles.index') }}",
-    columns: [
-      { data: 'placeholder', name: 'placeholder' },
-{ data: 'id', name: 'id' },
-{ data: 'name', name: 'name' },
-{ data: 'first_surname', name: 'first_surname' },
-{ data: 'second_surname', name: 'second_surname' },
-{ data: 'birthday', name: 'birthday' },
-{ data: 'mobile', name: 'mobile' },
-{ data: 'avatar', name: 'avatar', sortable: false, searchable: false },
-{ data: 'actions', name: '{{ trans('global.actions') }}' }
-    ],
-    orderCellsTop: true,
-    order: [[ 1, 'desc' ]],
-    pageLength: 100,
-  };
-  let table = $('.datatable-Profile').DataTable(dtOverrideGlobals);
-  $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
-      $($.fn.dataTable.tables(true)).DataTable()
-          .columns.adjust();
-  });
-  
-});
-
+        let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+        @can('profile_delete')
+            let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
+            let deleteButton = {
+                text: deleteButtonTrans,
+                url: "{{ route('backoffice.profiles.massDestroy') }}",
+                className: 'btn-danger',
+                action: function (e, dt, node, config) {
+                    var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
+                        return entry.id
+                    });
+                    if (ids.length === 0) {
+                        alert('{{ trans('global.datatables.zero_selected') }}')
+                        return
+                    }
+                    if (confirm('{{ trans('global.areYouSure') }}')) {
+                        $.ajax({
+                        headers: {'x-csrf-token': _token},
+                        method: 'POST',
+                        url: config.url,
+                        data: { ids: ids, _method: 'DELETE' }
+                        })
+                        .done(function () { location.reload() })
+                    }
+                }
+            }
+            dtButtons.push(deleteButton)
+        @endcan
+        @can('profile_create')
+            let createButtonTrans = '{{ trans('global.add') }}';
+            let createButton = {
+                text: createButtonTrans,
+                className: ['btn-success', 'btn'],
+                action: function () {
+                    $(location).attr('href', "{{ route('backoffice.profiles.create') }}");
+                }
+            }
+            dtButtons.push(createButton)
+        @endcan
+        let dtOverrideGlobals = {
+            buttons: dtButtons,
+            processing: true,
+            serverSide: true,
+            retrieve: true,
+            aaSorting: [],
+            ajax: "{{ route('backoffice.profiles.index') }}",
+            columns: [
+                { data: 'placeholder', name: 'placeholder' },
+                { data: 'id', name: 'id' },
+                { data: 'name', name: 'name' },
+                { data: 'first_surname', name: 'first_surname' },
+                { data: 'second_surname', name: 'second_surname' },
+                { data: 'birthday', name: 'birthday' },
+                { data: 'mobile', name: 'mobile' },
+                { data: 'avatar', name: 'avatar', sortable: false, searchable: false },
+                { data: 'actions', name: '{{ trans('global.actions') }}' }
+            ],
+            orderCellsTop: true,
+            order: [[ 1, 'desc' ]],
+            pageLength: 100,
+        };
+        let table = $('.datatable-Profile').DataTable(dtOverrideGlobals);
+        $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
+            $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+        });
+    });
 </script>
 @endsection
