@@ -49,7 +49,7 @@
                 <label class="required">{{ trans('cruds.campaign.fields.utm_medium') }}</label>
                 <select class="form-control {{ $errors->has('utm_medium') ? 'is-invalid' : '' }}" name="utm_medium" id="utm_medium" required>
                     <option value disabled {{ old('utm_medium', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                    @foreach(App\Models\Campaign::UTM_MEDIUM_SELECT as $key => $label)
+                    @foreach($utmMedium as $key => $label)
                         <option value="{{ $key }}" {{ old('utm_medium', $campaign->utm_medium) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach
                 </select>

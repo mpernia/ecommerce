@@ -106,7 +106,9 @@ class CampaignController extends Controller
 
         $products = Product::pluck('name', 'id');
 
-        return view('backoffice.advertiserManagement.campaigns.create', compact('products'));
+        $utmMedium = Campaign::UTM_MEDIUM_SELECT;
+
+        return view('backoffice.advertiserManagement.campaigns.create', compact('products', 'utmMedium'));
     }
 
     public function store(StoreCampaignRequest $request)
@@ -125,7 +127,9 @@ class CampaignController extends Controller
 
         $campaign->load('products', 'created_by');
 
-        return view('backoffice.advertiserManagement.campaigns.edit', compact('campaign', 'products'));
+        $utmMedium = Campaign::UTM_MEDIUM_SELECT;
+
+        return view('backoffice.advertiserManagement.campaigns.edit', compact('campaign', 'products', 'utmMedium'));
     }
 
     public function update(UpdateCampaignRequest $request, Campaign $campaign)
@@ -142,7 +146,9 @@ class CampaignController extends Controller
 
         $campaign->load('products', 'created_by');
 
-        return view('backoffice.advertiserManagement.campaigns.show', compact('campaign'));
+        $utmMedium = Campaign::UTM_MEDIUM_SELECT;
+
+        return view('backoffice.advertiserManagement.campaigns.show', compact('campaign', 'utmMedium'));
     }
 
     public function destroy(Campaign $campaign)

@@ -60,7 +60,7 @@
                             {{ trans('cruds.campaign.fields.utm_medium') }}
                         </th>
                         <td>
-                            {{ App\Models\Campaign::UTM_MEDIUM_SELECT[$campaign->utm_medium] ?? '' }}
+                            {{ $utmMedium[$campaign->utm_medium] ?? '' }}
                         </td>
                     </tr>
                     <tr>

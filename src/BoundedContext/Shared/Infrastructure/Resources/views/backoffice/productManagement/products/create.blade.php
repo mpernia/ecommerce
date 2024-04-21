@@ -114,7 +114,7 @@
                 <label>{{ trans('cruds.product.fields.availability') }}</label>
                 <select class="form-control {{ $errors->has('availability') ? 'is-invalid' : '' }}" name="availability" id="availability">
                     <option value disabled {{ old('availability', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                    @foreach(App\Models\Product::AVAILABILITY_SELECT as $key => $label)
+                    @foreach($availability as $key => $label)
                         <option value="{{ $key }}" {{ old('availability', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach
                 </select>

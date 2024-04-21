@@ -120,7 +120,7 @@
                             {{ trans('cruds.product.fields.availability') }}
                         </th>
                         <td>
-                            {{ App\Models\Product::AVAILABILITY_SELECT[$product->availability] ?? '' }}
+                            {{ $availability[$product->availability] ?? '' }}
                         </td>
                     </tr>
                     <tr>

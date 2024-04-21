@@ -14,7 +14,7 @@
                 <label class="required" for="store_id">{{ trans('cruds.transaction.fields.store') }}</label>
                 <select class="form-control select2 {{ $errors->has('store') ? 'is-invalid' : '' }}" name="store_id" id="store_id" required>
                     @foreach($stores as $id => $entry)
-                        <option value="{{ $id }}" {{ (old('store_id') ? old('store_id') : $transaction->project->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                        <option value="{{ $id }}" {{ (old('store_id') ? old('store_id') : $transaction->store->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('project'))

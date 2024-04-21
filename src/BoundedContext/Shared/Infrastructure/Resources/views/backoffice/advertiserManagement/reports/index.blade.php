@@ -8,7 +8,7 @@
             <label class="control-label" for="store">{{ trans('cruds.advertiserReport.title_singular') }}</label>
             <select name="project" class="form-control">
                 @foreach($stores as $key => $value)
-                    <option value="{{ $key }}" @if ($key==$currentProject) selected @endif>{{ $value }}</option>
+                    <option value="{{ $key }}" @if ($key==$currentStore) selected @endif>{{ $value }}</option>
                 @endforeach
             </select>
         </div>

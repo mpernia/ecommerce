@@ -23,7 +23,7 @@ class TransactionController extends Controller
         abort_if(Gate::denies('transaction_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Transaction::with(['project', 'transaction_type', 'income_source', 'currency', 'created_by'])->select(sprintf('%s.*', (new Transaction)->table));
+            $query = Transaction::with(['store', 'transaction_type', 'income_source', 'currency', 'created_by'])->select(sprintf('%s.*', (new Transaction)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -48,7 +48,7 @@ class TransactionController extends Controller
                 return $row->id ? $row->id : '';
             });
             $table->addColumn('store_name', function ($row) {
-                return $row->project ? $row->project->name : '';
+                return $row->store ? $row->store->name : '';
             });
 
             $table->addColumn('transaction_type_name', function ($row) {
@@ -73,7 +73,7 @@ class TransactionController extends Controller
                 return $row->description ? $row->description : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'project', 'transaction_type', 'income_source', 'currency']);
+            $table->rawColumns(['actions', 'placeholder', 'store', 'transaction_type', 'income_source', 'currency']);
 
             return $table->make(true);
         }
@@ -115,7 +115,7 @@ class TransactionController extends Controller
 
         $currencies = Currency::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $transaction->load('project', 'transaction_type', 'income_source', 'currency', 'created_by');
+        $transaction->load('store', 'transaction_type', 'income_source', 'currency', 'created_by');
 
         return view('backoffice.advertiserManagement.transactions.edit', compact('currencies', 'income_sources', 'stores', 'transaction', 'transaction_types'));
     }
@@ -131,7 +131,7 @@ class TransactionController extends Controller
     {
         abort_if(Gate::denies('transaction_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $transaction->load('project', 'transaction_type', 'income_source', 'currency', 'created_by');
+        $transaction->load('store', 'transaction_type', 'income_source', 'currency', 'created_by');
 
         return view('backoffice.advertiserManagement.transactions.show', compact('transaction'));
     }

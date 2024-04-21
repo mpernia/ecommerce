@@ -87,7 +87,7 @@ class ProductTagController extends Controller
     {
         abort_if(Gate::denies('product_tag_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.tags.show', compact('productTag'));
+        return view('backoffice.productManagement.tags.show', compact('productTag'));
     }
 
     public function destroy(ProductTag $productTag)

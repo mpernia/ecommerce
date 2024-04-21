@@ -20,7 +20,7 @@ class NoteController extends Controller
         abort_if(Gate::denies('note_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Note::with(['project', 'created_by'])->select(sprintf('%s.*', (new Note)->table));
+            $query = Note::with(['store', 'created_by'])->select(sprintf('%s.*', (new Note)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -45,7 +45,7 @@ class NoteController extends Controller
                 return $row->id ? $row->id : '';
             });
             $table->addColumn('store_name', function ($row) {
-                return $row->project ? $row->project->name : '';
+                return $row->store ? $row->store->name : '';
             });
 
             $table->editColumn('note_text', function ($row) {
@@ -82,7 +82,7 @@ class NoteController extends Controller
 
         $stores = Store::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $note->load('project', 'created_by');
+        $note->load('store', 'created_by');
 
         return view('backoffice.advertiserManagement.notes.edit', compact('note', 'stores'));
     }
@@ -98,7 +98,7 @@ class NoteController extends Controller
     {
         abort_if(Gate::denies('note_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $note->load('project', 'created_by');
+        $note->load('store', 'created_by');
 
         return view('backoffice.advertiserManagement.notes.show', compact('note'));
     }

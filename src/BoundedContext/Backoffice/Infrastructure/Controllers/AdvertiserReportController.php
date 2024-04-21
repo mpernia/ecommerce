@@ -12,14 +12,14 @@ class AdvertiserReportController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Transaction::with('project')
+        $query = Transaction::with('store')
             ->with('transaction_type')
             ->with('income_source')
             ->with('currency')
             ->orderBy('transaction_date', 'desc');
 
         if ($request->has('store')) {
-            $query->where('store_id', $request->project);
+            $query->where('store_id', $request->store);
         }
 
         $transactions = $query->get();
@@ -59,17 +59,17 @@ class AdvertiserReportController extends Controller
                 $entries[$date][$currency]['total'] += $total;
             }
         }
-        $stores = Store::pluck('name', 'id')->prepend('--- ' . trans('cruds.advertiserReport.reports.allProjects') . ' ---', '');
+        $stores = Store::pluck('name', 'id')->prepend('--- ' . trans('cruds.advertiserReport.reports.allStores') . ' ---', '');
         if ($request->has('store')) {
-            $currentProject = $request->get('store');
+            $currentStore = $request->get('store');
         } else {
-            $currentProject = '';
+            $currentStore = '';
         }
 
         return view('backoffice.advertiserManagement.reports.index', compact(
             'entries',
             'stores',
-            'currentProject'
+            'currentStore'
         ));
     }
 }

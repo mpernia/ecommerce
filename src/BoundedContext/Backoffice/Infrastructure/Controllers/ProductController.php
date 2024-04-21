@@ -122,7 +122,9 @@ class ProductController extends Controller
 
         $tags = ProductTag::pluck('name', 'id');
 
-        return view('backoffice.productManagement.products.create', compact('categories', 'tags'));
+        $availability = Product::AVAILABILITY_SELECT;
+
+        return view('backoffice.productManagement.products.create', compact('categories', 'tags', 'availability'));
     }
 
     public function store(StoreProductRequest $request)
@@ -155,7 +157,9 @@ class ProductController extends Controller
 
         $product->load('categories', 'tags', 'created_by');
 
-        return view('backoffice.productManagement.products.edit', compact('categories', 'product', 'tags'));
+        $availability = Product::AVAILABILITY_SELECT;
+
+        return view('backoffice.productManagement.products.edit', compact('categories', 'product', 'tags', 'availability'));
     }
 
     public function update(UpdateProductRequest $request, Product $product)
@@ -197,7 +201,9 @@ class ProductController extends Controller
 
         $product->load('categories', 'tags', 'created_by');
 
-        return view('backoffice.productManagement.products.show', compact('product'));
+        $availability = Product::AVAILABILITY_SELECT;
+
+        return view('backoffice.productManagement.products.show', compact('product', 'availability', 'availability'));
     }
 
     public function destroy(Product $product)
