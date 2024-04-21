@@ -136,24 +136,30 @@ div.dt-button-collection {
 }
 
 .td-action {
-    width: 180px;
+    min-width: 195px;
+    width: 195px;
 }
 
 .td-checkbox {
     width: 12px;
 }
 
-/*
-.td-checkbox {
-    min-width: 12px !important;
-    max-width: 12px !important;
+.td-sm {
+    min-width: 60px;
 }
 
-.td-action {
-    min-width: 180px !important;
-    max-width: 180px !important;
+.td-mx {
+    min-width: 120px;
 }
-*/
+
+.td-md {
+    min-width: 150px;
+}
+
+.td-lg {
+    min-width: 250px;
+}
+
 .btn-datatable-action {
     min-width:100px !important;
     /* max-width: 100px !important; */
@@ -167,8 +173,8 @@ div.dt-button-collection {
 }
 
 .btn-action {
-    min-width: 60px !important;
-    max-width: 60px !important;
+    min-width: 65px !important;
+    max-width: 65px !important;
     text-align: left !important;
 }
 

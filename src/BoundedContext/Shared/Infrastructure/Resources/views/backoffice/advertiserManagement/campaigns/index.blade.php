@@ -7,55 +7,56 @@
     </div>
 
     <div class="card-body">
+        <div class="table-responsive-lg">
         <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Campaign">
             <thead>
                 <tr>
                     <th class="td-checkbox">
 
                     </th>
-                    <th>
+                    <th class="td-sm">
                         {{ trans('cruds.campaign.fields.id') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.name') }}
                     </th>
-                    <th>
+                    <th class="td-sm">
                         {{ trans('cruds.campaign.fields.is_active') }}
                     </th>
-                    <th>
+                    <th class="td-lg">
                         {{ trans('cruds.campaign.fields.url') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.utm_source') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.utm_medium') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.utm_campaign') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.utm_term') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.utm_content') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.pay_per_clic') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.cost_per_lead') }}
                     </th>
-                    <th>
+                    <th class="td-md">
                         {{ trans('cruds.campaign.fields.cost_per_acquisition') }}
                     </th>
-                    <th>
+                    <th class="td-mx">
                         {{ trans('cruds.campaign.fields.cost_per_clic') }}
                     </th>
-                    <th>
+                    <th class="td-md">
                         {{ trans('cruds.campaign.fields.persent_per_sale') }}
                     </th>
-                    <th>
+                    <th class="td-md">
                         {{ trans('cruds.campaign.fields.product') }}
                     </th>
                     <th class="td-action">
@@ -64,6 +65,7 @@
                 </tr>
             </thead>
         </table>
+        </div>
     </div>
 </div>
 
@@ -129,13 +131,13 @@
                 { data: 'utm_source', name: 'utm_source' },
                 { data: 'utm_medium', name: 'utm_medium' },
                 { data: 'utm_campaign', name: 'utm_campaign' },
-                { data: 'utm_term', name: 'utm_term' },
-                { data: 'utm_content', name: 'utm_content' },
-                { data: 'pay_per_clic', name: 'pay_per_clic' },
-                { data: 'cost_per_lead', name: 'cost_per_lead' },
-                { data: 'cost_per_acquisition', name: 'cost_per_acquisition' },
-                { data: 'cost_per_clic', name: 'cost_per_clic' },
-                { data: 'persent_per_sale', name: 'persent_per_sale' },
+                { data: 'utm_term', name: 'utm_term', visible: false },
+                { data: 'utm_content', name: 'utm_content', visible: false },
+                { data: 'pay_per_clic', name: 'pay_per_clic', visible: false },
+                { data: 'cost_per_lead', name: 'cost_per_lead', visible: false },
+                { data: 'cost_per_acquisition', name: 'cost_per_acquisition', visible: false },
+                { data: 'cost_per_clic', name: 'cost_per_clic', visible: false },
+                { data: 'persent_per_sale', name: 'persent_per_sale', visible: false },
                 { data: 'product', name: 'products.name' },
                 { data: 'actions', name: '{{ trans('global.actions') }}' }
             ],
