@@ -51,7 +51,7 @@ Route::get('userVerification/{token}', [UserVerificationController::class, 'appr
 
 Route::group([], function (){
     Route::middleware('guest')->group(function () {
-        Route::get('/login', [LoginController::class, 'showLoginForm']);
+        Route::get('/admin', [LoginController::class, 'showLoginForm'])->name('admin.login.form');
         Route::post('login', [LoginController::class, 'login'])->name('login');
         Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
         Route::post('/register', [RegisterController::class, 'register'])->name('register');
@@ -202,15 +202,18 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     Route::post('two-factor', [ChangeTwoFactorController::class, 'activate'])->name('toggleTwoFactor');
 });
 
-Route::group(['as' => 'frontend.', 'middleware' => ['auth', '2fa']], function () {
+Route::group(['as' => 'frontend.'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('checkout', function () { return view('frontend.checkout'); })->name('checkout');
+    Route::get('wishlist', function () { return view('frontend.wishlist'); })->name('wishlist');
 
-    Route::group([], function () {
-        Route::get('account', function () {
-            return 'My Account';
+    Route::group(['middleware' => ['auth', '2fa']], function () {
+        Route::group([], function () {
+            Route::get('account', function () {
+                return 'My Account';
+            });
         });
     });
-
     //Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     //Route::post('toggle-two-factor', [ProfileController::class, 'toggleTwoFactor'])->name('profile.toggle-two-factor');
 });
