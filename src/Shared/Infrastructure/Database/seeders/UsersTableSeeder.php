@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
             [
                 'id'                 => 1,
                 'name'               => 'Admin',
-                'email'              => 'admin@admin.com',
+                'email'              => 'admin@app.com',
                 'email_verified_at'  => '2024-04-13 00:30:33',
                 'password'           => bcrypt('password'),
                 'remember_token'     => null,
@@ -26,7 +26,7 @@ class UsersTableSeeder extends Seeder
             [
                 'id'                 => 2,
                 'name'               => 'Advertiser',
-                'email'              => 'advertiser@admin.com',
+                'email'              => 'advertiser@app.com',
                 'email_verified_at'  => '2024-04-13 00:30:33',
                 'password'           => bcrypt('password'),
                 'remember_token'     => null,
@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
             [
                 'id'                 => 3,
                 'name'               => 'Affiliate',
-                'email'              => 'affiliate@admin.com',
+                'email'              => 'affiliate@app.com',
                 'email_verified_at'  => '2024-04-13 00:30:33',
                 'password'           => bcrypt('password'),
                 'remember_token'     => null,
@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
             [
                 'id'                 => 4,
                 'name'               => 'User',
-                'email'              => 'user@admin.com',
+                'email'              => 'user@app.com',
                 'email_verified_at'  => '2024-04-13 00:30:33',
                 'password'           => bcrypt('password'),
                 'remember_token'     => null,
