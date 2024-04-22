@@ -46,7 +46,7 @@ use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\UsersControll
 use Ecommerce\BoundedContext\Frontend\Infrastructure\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'frontend.home');
+Route::view('/', 'frontend.home')->name('root');
 Route::get('userVerification/{token}', [UserVerificationController::class, 'approve'])->name('userVerification');
 
 Route::group([], function (){
@@ -55,7 +55,11 @@ Route::group([], function (){
         Route::post('login', [LoginController::class, 'login'])->name('login');
         Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
         Route::post('/register', [RegisterController::class, 'register'])->name('register');
-        Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+        Route::group(['prefix' => 'password', 'as' => 'password.'], function () {
+            Route::get('reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('request');
+            Route::post('mail', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('email');
+            Route::post('reset', function () {})->name('reset');
+        });
     });
 
     Route::middleware('auth')->group(function () {

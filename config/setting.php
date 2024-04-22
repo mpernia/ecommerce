@@ -9,7 +9,7 @@ return [
     'api_version' => env('API_VERSION', '1.0.0'),
     'date_format' => 'Y-m-d',
     'time_format' => 'H:i:s',
-    'registration_default_role' => '2',
+    'registration_default_role' => '4',
     'dashboard_language' => 'en',
     'primary_language' => 'es',
     'available_languages' => [
