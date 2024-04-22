@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('affiliate_advertiser', function (Blueprint $table) {
+        Schema::create('advertiser_affiliate', function (Blueprint $table) {
             $table->unsignedBigInteger('affiliate_id');
             $table->foreign('affiliate_id', 'affiliate_id_fk_9689004')->references('id')->on('affiliates')->onDelete('cascade');
             $table->unsignedBigInteger('advertiser_id');

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::table('transactions', function (Blueprint $table) {
             $table->unsignedBigInteger('store_id')->nullable();
-            $table->foreign('store_id', 'project_fk_9679195')->references('id')->on('stores');
+            $table->foreign('store_id', 'store_fk_9679195')->references('id')->on('stores');
             $table->unsignedBigInteger('transaction_type_id')->nullable();
             $table->foreign('transaction_type_id', 'transaction_type_fk_9679196')->references('id')->on('transaction_types');
             $table->unsignedBigInteger('income_source_id')->nullable();

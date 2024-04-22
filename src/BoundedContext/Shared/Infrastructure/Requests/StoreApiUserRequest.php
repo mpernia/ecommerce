@@ -27,7 +27,7 @@ class StoreApiUserRequest extends FormRequest
                 'required',
             ],
             'last_login_at' => [
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'date_format:' . config('setting.date_format') . ' ' . config('setting.time_format'),
                 'nullable',
             ],
             'roles.*' => [

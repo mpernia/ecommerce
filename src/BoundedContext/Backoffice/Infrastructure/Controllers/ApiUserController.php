@@ -71,7 +71,7 @@ class ApiUserController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.apiUsers.index');
+        return view('backoffice.userManagement.apiUsers.index');
     }
 
     public function create()
@@ -80,7 +80,7 @@ class ApiUserController extends Controller
 
         $roles = Role::pluck('title', 'id');
 
-        return view('backoffice.apiUsers.create', compact('roles'));
+        return view('backoffice.userManagement.apiUsers.create', compact('roles'));
     }
 
     public function store(StoreApiUserRequest $request)
@@ -99,7 +99,7 @@ class ApiUserController extends Controller
 
         $apiUser->load('roles', 'created_by');
 
-        return view('backoffice.apiUsers.edit', compact('apiUser', 'roles'));
+        return view('backoffice.userManagement.apiUsers.edit', compact('apiUser', 'roles'));
     }
 
     public function update(UpdateApiUserRequest $request, ApiUser $apiUser)
@@ -116,7 +116,7 @@ class ApiUserController extends Controller
 
         $apiUser->load('roles', 'created_by');
 
-        return view('backoffice.apiUsers.show', compact('apiUser'));
+        return view('backoffice.userManagement.apiUsers.show', compact('apiUser'));
     }
 
     public function destroy(ApiUser $apiUser)

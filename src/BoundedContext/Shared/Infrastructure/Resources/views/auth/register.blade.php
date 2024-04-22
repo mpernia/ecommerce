@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 @section('content')
 <div class="login-box">
     <div class="login-logo">
         <div class="login-logo">
-            <a href="#">
+            <a href="{{ route('root') }}">
                 {{ trans('setting.site_title') }}
             </a>
         </div>
@@ -43,7 +43,20 @@
                     <div class="form-group">
                         <input type="password" name="password_confirmation" class="form-control" required placeholder="{{ trans('global.login_password_confirmation') }}">
                     </div>
+
+                    <div class="form-group">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="user-role" id="advertiser" value="2">
+                            <label class="form-check-label" for="advertiser">{{ trans('cruds.advertiser.title_singular') }}</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="user-role" id="affiliate" value="3">
+                            <label class="form-check-label" for="affiliate">{{ trans('cruds.affiliate.title_singular') }}</label>
+                        </div>
+                    </div>
+
                 </div>
+
                 <div class="row">
                     <div class="col-12 text-right">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">

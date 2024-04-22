@@ -61,7 +61,7 @@ class RolesController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.roles.index');
+        return view('backoffice.userManagement.roles.index');
     }
 
     public function create()
@@ -70,7 +70,7 @@ class RolesController extends Controller
 
         $permissions = Permission::pluck('title', 'id');
 
-        return view('backoffice.roles.create', compact('permissions'));
+        return view('backoffice.userManagement.roles.create', compact('permissions'));
     }
 
     public function store(StoreRoleRequest $request)
@@ -89,7 +89,7 @@ class RolesController extends Controller
 
         $role->load('permissions');
 
-        return view('backoffice.roles.edit', compact('permissions', 'role'));
+        return view('backoffice.userManagement.roles.edit', compact('permissions', 'role'));
     }
 
     public function update(UpdateRoleRequest $request, Role $role)
@@ -106,7 +106,7 @@ class RolesController extends Controller
 
         $role->load('permissions');
 
-        return view('backoffice.roles.show', compact('role'));
+        return view('backoffice.userManagement.roles.show', compact('role'));
     }
 
     public function destroy(Role $role)

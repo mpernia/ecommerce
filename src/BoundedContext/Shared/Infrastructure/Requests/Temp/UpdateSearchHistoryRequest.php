@@ -27,7 +27,7 @@ class UpdateSearchHistoryRequest extends FormRequest
             ],
             'last_date_at' => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'date_format:' . config('setting.date_format') . ' ' . config('setting.time_format'),
             ],
         ];
     }

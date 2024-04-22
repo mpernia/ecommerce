@@ -2,8 +2,8 @@
 
 return [
     'userManagement' => [
-        'title'          => 'User management',
-        'title_singular' => 'User management',
+        'title'          => 'Users',
+        'title_singular' => 'Users',
     ],
     'permission' => [
         'title'          => 'Permissions',
@@ -171,11 +171,9 @@ return [
             'updated_at_helper'   => ' ',
         ],
     ],
-
-
     'faqManagement' => [
-        'title'          => 'FAQ Management',
-        'title_singular' => 'FAQ Management',
+        'title'          => 'FAQ',
+        'title_singular' => 'FAQ',
     ],
     'faqCategory' => [
         'title'          => 'Categories',
@@ -218,8 +216,8 @@ return [
         ],
     ],
     'productManagement' => [
-        'title'          => 'Product Management',
-        'title_singular' => 'Product Management',
+        'title'          => 'Products',
+        'title_singular' => 'Product',
     ],
     'productCategory' => [
         'title'          => 'Categories',
@@ -298,8 +296,8 @@ return [
         ],
     ],
     'contentManagement' => [
-        'title'          => 'Content management',
-        'title_singular' => 'Content management',
+        'title'          => 'Contents',
+        'title_singular' => 'Content',
     ],
     'contentCategory' => [
         'title'          => 'Categories',
@@ -443,9 +441,9 @@ return [
             'deleted_at_helper' => ' ',
         ],
     ],
-    'projectStatus' => [
-        'title'          => 'Project statuses',
-        'title_singular' => 'Project status',
+    'storeStatus' => [
+        'title'          => 'Store statuses',
+        'title_singular' => 'Store status',
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
@@ -460,8 +458,8 @@ return [
         ],
     ],
     'advertiserManagement' => [
-        'title'          => 'Advertiser management',
-        'title_singular' => 'Advertiser management',
+        'title'          => 'Advertisers',
+        'title_singular' => 'Advertiser',
     ],
     'advertiser' => [
         'title'          => 'advertisers',
@@ -497,9 +495,9 @@ return [
             'created_by_helper' => ' ',
         ],
     ],
-    'project' => [
-        'title'          => 'Projects',
-        'title_singular' => 'Project',
+    'store' => [
+        'title'          => 'Stores',
+        'title_singular' => 'Store',
         'fields'         => [
             'id'                 => 'ID',
             'id_helper'          => ' ',
@@ -513,7 +511,7 @@ return [
             'start_date_helper'  => ' ',
             'budget'             => 'Budget',
             'budget_helper'      => ' ',
-            'status'             => 'Project Status',
+            'status'             => 'Store Status',
             'status_helper'      => ' ',
             'created_at'         => 'Created at',
             'created_at_helper'  => ' ',
@@ -531,8 +529,8 @@ return [
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
-            'project'           => 'Project',
-            'project_helper'    => ' ',
+            'store'           => 'Store',
+            'store_helper'    => ' ',
             'note_text'         => 'Note Text',
             'note_text_helper'  => ' ',
             'created_at'        => 'Created at',
@@ -551,8 +549,8 @@ return [
         'fields'         => [
             'id'                   => 'ID',
             'id_helper'            => ' ',
-            'project'              => 'Project',
-            'project_helper'       => ' ',
+            'store'              => 'Store',
+            'store_helper'       => ' ',
             'document_file'        => 'File',
             'document_file_helper' => ' ',
             'name'                 => 'Document Name',
@@ -575,8 +573,8 @@ return [
         'fields'         => [
             'id'                      => 'ID',
             'id_helper'               => ' ',
-            'project'                 => 'Project',
-            'project_helper'          => ' ',
+            'store'                 => 'store',
+            'store_helper'          => ' ',
             'transaction_type'        => 'Transaction Type',
             'transaction_type_helper' => ' ',
             'income_source'           => 'Income Source',
@@ -610,7 +608,7 @@ return [
             'expenses'    => 'Expenses',
             'fees'        => 'Fees',
             'total'       => 'Total',
-            'allProjects' => 'All projects',
+            'allStores' => 'All stores',
         ],
     ],
     'contactManagement' => [
@@ -673,8 +671,8 @@ return [
     ],
 
     'affiliateManagement' => [
-        'title'          => 'Affiliate Management',
-        'title_singular' => 'Affiliate Management',
+        'title'          => 'Affiliates',
+        'title_singular' => 'Affiliate',
     ],
     'campaign' => [
         'title'          => 'Campaign',
@@ -784,7 +782,7 @@ return [
             'created_by_helper'      => ' ',
         ],
     ],
-    'myAccount' => [
+    'customerManagement' => [
         'title'          => 'My Account',
         'title_singular' => 'My Account',
     ],
@@ -863,8 +861,8 @@ return [
         ],
     ],
     'managementSetting' => [
-        'title'          => 'Management Settings',
-        'title_singular' => 'Management Setting',
+        'title'          => 'Settings',
+        'title_singular' => 'Setting',
     ],
     'affiliateCampaign' => [
         'title'          => 'Affiliate Campaign',

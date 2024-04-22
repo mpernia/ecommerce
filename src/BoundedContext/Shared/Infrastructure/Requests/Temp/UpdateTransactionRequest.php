@@ -16,7 +16,7 @@ class UpdateTransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'project_id' => [
+            'store_id' => [
                 'required',
                 'integer',
             ],
@@ -37,7 +37,7 @@ class UpdateTransactionRequest extends FormRequest
             ],
             'transaction_date' => [
                 'required',
-                'date_format:' . config('panel.date_format'),
+                'date_format:' . config('setting.date_format'),
             ],
             'name' => [
                 'string',

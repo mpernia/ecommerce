@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 @section('content')
 <div class="login-box">
     <div class="login-logo">
         <div class="login-logo">
-            <a href="{{ route('backoffice.home') }}">
+            <a href="{{ route('root') }}">
                 {{ trans('setting.site_title') }}
             </a>
         </div>

@@ -8,55 +8,58 @@ use Ecommerce\BoundedContext\Auth\Infrastructure\Controllers\LoginController;
 use Ecommerce\BoundedContext\Auth\Infrastructure\Controllers\RegisterController;
 use Ecommerce\BoundedContext\Auth\Infrastructure\Controllers\TwoFactorController;
 use Ecommerce\BoundedContext\Auth\Infrastructure\Controllers\UserVerificationController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\AdvertiserController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\AdvertiserReportController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\AdvertiserStatusController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\AffiliateCampaignController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\AffiliateController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\AffiliateStatusController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\ApiUserController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\AuditLogsController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\CampaignController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\ContentCategoryController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\ContentPageController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\ContentTagController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\CurrencyController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\DashboardController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\DocumentController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\FaqCategoryController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\FaqQuestionController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\FavoriteProductController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\IncomeSourceController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\KnownHostController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\LeadController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\NoteController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\PermissionsController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\ProductCategoryController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\ProductController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\ProductTagController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\RolesController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\AffiliateCampaignController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\AffiliateController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\AffiliateStatusController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\CampaignController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\AdvertiserController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\AdvertiserReportController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\AdvertiserStatusController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ContentCategoryController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ContentPageController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ContentTagController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\CurrencyController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\DocumentController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\FaqCategoryController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\FaqQuestionController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\FavoriteProductController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\IncomeSourceController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\LeadController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\NoteController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProductCategoryController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProductController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProductTagController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProjectController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\ProjectStatusController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\SaleController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\SearchHistoryController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\TransactionController;
-use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\Temp\TransactionTypeController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\SaleController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\SearchHistoryController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\StoreController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\StoreStatusController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\TransactionController;
+use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\TransactionTypeController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\UserAlertsController;
 use Ecommerce\BoundedContext\Backoffice\Infrastructure\Controllers\UsersController;
 use Ecommerce\BoundedContext\Frontend\Infrastructure\Controllers\HomeController;
-use Ecommerce\BoundedContext\Frontend\Infrastructure\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'frontend.home');
+Route::view('/', 'frontend.home')->name('root');
 Route::get('userVerification/{token}', [UserVerificationController::class, 'approve'])->name('userVerification');
 
 Route::group([], function (){
     Route::middleware('guest')->group(function () {
-        Route::get('/login', [LoginController::class, 'showLoginForm']);
+        Route::get('/admin', [LoginController::class, 'showLoginForm'])->name('admin.login.form');
         Route::post('login', [LoginController::class, 'login'])->name('login');
         Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
         Route::post('/register', [RegisterController::class, 'register'])->name('register');
-        Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+        Route::group(['prefix' => 'password', 'as' => 'password.'], function () {
+            Route::get('reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('request');
+            Route::post('mail', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('email');
+            Route::post('reset', function () {})->name('reset');
+        });
     });
 
     Route::middleware('auth')->group(function () {
@@ -132,14 +135,14 @@ Route::group(['prefix' => 'backoffice', 'as' => 'backoffice.', 'middleware' => [
     Route::delete('advertiser-statuses/destroy', [AdvertiserStatusController::class, 'massDestroy'])->name('advertiser-statuses.massDestroy');
     Route::resource('advertiser-statuses', AdvertiserStatusController::class);
 
-    Route::delete('store-statuses/destroy', [ProjectStatusController::class, 'massDestroy'])->name('store-statuses.massDestroy');
-    Route::resource('store-statuses', ProjectStatusController::class);
+    Route::delete('store-statuses/destroy', [StoreStatusController::class, 'massDestroy'])->name('store-statuses.massDestroy');
+    Route::resource('store-statuses', StoreStatusController::class);
 
     Route::delete('advertisers/destroy', [AdvertiserController::class, 'massDestroy'])->name('advertisers.massDestroy');
     Route::resource('advertisers', AdvertiserController::class);
 
-    Route::delete('projects/destroy', [ProjectController::class, 'massDestroy'])->name('projects.massDestroy');
-    Route::resource('projects', ProjectController::class);
+    Route::delete('stores/destroy', [StoreController::class, 'massDestroy'])->name('stores.massDestroy');
+    Route::resource('stores', StoreController::class);
 
     Route::delete('notes/destroy', [NoteController::class, 'massDestroy'])->name('notes.massDestroy');
     Route::resource('notes', NoteController::class);
@@ -199,15 +202,18 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'middleware' => ['auth'
     Route::post('two-factor', [ChangeTwoFactorController::class, 'activate'])->name('toggleTwoFactor');
 });
 
-Route::group(['as' => 'frontend.', 'middleware' => ['auth', '2fa']], function () {
+Route::group(['as' => 'frontend.'], function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('checkout', function () { return view('frontend.checkout'); })->name('checkout');
+    Route::get('wishlist', function () { return view('frontend.wishlist'); })->name('wishlist');
 
-    Route::group([], function () {
-        Route::get('account', function () {
-            return 'My Account';
+    Route::group(['middleware' => ['auth', '2fa']], function () {
+        Route::group([], function () {
+            Route::get('account', function () {
+                return 'My Account';
+            });
         });
     });
-
     //Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     //Route::post('toggle-two-factor', [ProfileController::class, 'toggleTwoFactor'])->name('profile.toggle-two-factor');
 });

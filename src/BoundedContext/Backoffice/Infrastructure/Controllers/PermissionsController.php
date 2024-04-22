@@ -55,14 +55,14 @@ class PermissionsController extends Controller
             return $table->make(true);
         }
 
-        return view('backoffice.permissions.index');
+        return view('backoffice.userManagement.permissions.index');
     }
 
     public function create()
     {
         abort_if(Gate::denies('permission_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.permissions.create');
+        return view('backoffice.userManagement.permissions.create');
     }
 
     public function store(StorePermissionRequest $request)
@@ -76,7 +76,7 @@ class PermissionsController extends Controller
     {
         abort_if(Gate::denies('permission_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.permissions.edit', compact('permission'));
+        return view('backoffice.userManagement.permissions.edit', compact('permission'));
     }
 
     public function update(UpdatePermissionRequest $request, Permission $permission)
@@ -90,7 +90,7 @@ class PermissionsController extends Controller
     {
         abort_if(Gate::denies('permission_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('backoffice.permissions.show', compact('permission'));
+        return view('backoffice.userManagement.permissions.show', compact('permission'));
     }
 
     public function destroy(Permission $permission)
