@@ -15,7 +15,7 @@
                     <th>
                         {{ trans('cruds.role.fields.id') }}
                     </th>
-                    <th>
+                    <th class="td-lg">
                         {{ trans('cruds.role.fields.title') }}
                     </th>
                     <th>
@@ -87,10 +87,10 @@
                     {data: 'id', name: 'id', visible: false },
                     {data: 'title', name: 'title'},
                     {data: 'permissions', name: 'permissions.title'},
-                    {data: 'actions', name: '{{ trans('global.actions') }}'}
+                    {data: 'actions', name: '{{ trans('global.actions') }}', visible: false}
                 ],
                 orderCellsTop: true,
-                order: [[2, 'asc']],
+                order: [[1, 'asc']],
                 pageLength: 100,
             };
             let table = $('.datatable-Role').DataTable(dtOverrideGlobals);

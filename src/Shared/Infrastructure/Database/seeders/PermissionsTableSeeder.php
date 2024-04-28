@@ -15,40 +15,8 @@ class PermissionsTableSeeder extends Seeder
                 'title' => 'user management access',
             ],
             [
-                'key' => 'permission_create',
-                'title' => 'permission create',
-            ],
-            [
-                'key' => 'permission_edit',
-                'title' => 'permission edit',
-            ],
-            [
-                'key' => 'permission_show',
-                'title' => 'permission show',
-            ],
-            [
-                'key' => 'permission_delete',
-                'title' => 'permission delete',
-            ],
-            [
                 'key' => 'permission_access',
                 'title' => 'permission access',
-            ],
-            [
-                'key' => 'role_create',
-                'title' => 'role create',
-            ],
-            [
-                'key' => 'role_edit',
-                'title' => 'role edit',
-            ],
-            [
-                'key' => 'role_show',
-                'title' => 'role show',
-            ],
-            [
-                'key' => 'role_delete',
-                'title' => 'role delete',
             ],
             [
                 'key' => 'role_access',

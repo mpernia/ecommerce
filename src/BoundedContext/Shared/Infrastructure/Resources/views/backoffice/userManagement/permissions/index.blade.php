@@ -15,7 +15,7 @@
                     <th>
                         {{ trans('cruds.permission.fields.id') }}
                     </th>
-                    <th>
+                    <th class="td-lg">
                         {{ trans('cruds.permission.fields.title') }}
                     </th>
                     <th>
@@ -87,7 +87,7 @@
                     {data: 'id', name: 'id', visible: false},
                     {data: 'title', name: 'title'},
                     {data: 'key', name: 'key'},
-                    {data: 'actions', name: '{{ trans('global.actions') }}'}
+                    {data: 'actions', name: '{{ trans('global.actions') }}', visible: false}
                 ],
                 orderCellsTop: true,
                 order: [[2, 'asc']],
