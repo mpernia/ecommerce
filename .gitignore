@@ -22,3 +22,11 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 .idea
+
+.htaccess
+assets/
+composer.phar
+favicon.ico
+images/
+index.php
+robots.txt
