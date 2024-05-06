@@ -22,6 +22,11 @@ class PermissionsTableSeeder extends Seeder
                 'key' => 'role_access',
                 'title' => 'role access',
             ],
+            
+            [
+                'key' => 'role_edit',
+                'title' => 'role edit',
+            ],
             [
                 'key' => 'user_create',
                 'title' => 'user create',

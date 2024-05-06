@@ -87,7 +87,7 @@
                     {data: 'id', name: 'id', visible: false },
                     {data: 'title', name: 'title'},
                     {data: 'permissions', name: 'permissions.title'},
-                    {data: 'actions', name: '{{ trans('global.actions') }}', visible: false}
+                    {data: 'actions', name: '{{ trans('global.actions') }}'}
                 ],
                 orderCellsTop: true,
                 order: [[1, 'asc']],
